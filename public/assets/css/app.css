@@ -1,0 +1,246 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/*************** Header ***************/
+.cs-logo, .cs-menu-logo{
+    position: absolute;
+    top: 2em;
+    left: 2em;
+}
+
+.cs-logo a, .cs-menu-logo a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Times New Roman", serif;
+    font-size: 60px;
+    font-weight: lighter;
+}
+
+.cs-logo a{
+    color: #000;
+}
+
+.cs-menu-logo a {
+    color: #fff
+}
+
+.cs-menu-toggle{
+    position: fixed;
+    top: 2em;
+    right: 2em;
+    width: 120px;
+    height: 60px;
+    background-color: #0f0f0f;
+    border-radius: 8em;
+    transition: width 0.5s cubic-bezier(0.075, 0.82, 0.126, 1);
+    transform-origin: right;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.cs-menu-toggle.opened{
+    width: 60px;
+}
+
+.cs-menu-copy{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 1;
+}
+
+.cs-menu-copy span{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+.cs-menu-toggle:hover .cs-menu-copy{
+    left: 20px;
+}
+
+.cs-menu-toggle.opened .cs-menu-copy{
+    opacity: 0
+}
+
+.cs-menu-toggle-icon{
+    position: absolute;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    clip-path: circle(10% at 50% 50%);
+    background-color: burlywood;
+    transition: all 0.5s cubic-bezier(0.75, 0.82, 0.165, 1);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.cs-menu-toggle:hover .cs-menu-toggle-icon{
+    clip-path: circle(35% at 50% 50%);
+}
+
+.cs-menu-toggle.opened .cs-menu-toggle-icon{
+    clip-path: circle(50% at 50% 50%);
+    transform: scale(1.125);
+}
+
+.cs-hamburger{
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: translate(-50%, 50%);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    opacity: 0;
+}
+
+.cs-menu-toggle:hover .cs-hamburger,
+.cs-menu-toggle.opened .cs-hamburger{
+    top: 50%;
+    opacity: 1;
+}
+
+.cs-menu-bar {
+    position: absolute;
+    width: 15px;
+    height: 1.5px;
+    background-color: #000;
+    transition-property: transform;
+    transition: all 250ms ease-out;
+}
+
+.cs-menu-bar[data-position="top"]{
+    transform: translateY(-3px);
+}
+
+.cs-menu-bar[data-position="bottom"]{
+    transform: translateY(3px);
+}
+
+.cs-menu-toggle.opened .cs-menu-bar[data-position="top"]{
+    transform: translateY(0) rotate(45deg) scaleX(1.05);
+}
+
+.cs-menu-toggle.opened .cs-menu-bar[data-position="bottom"]{
+    transform: translateY(0) rotate(-45deg) scaleX(1.05);
+}
+
+.cs-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: #0f0f0f;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.cs-col{
+    flex: 1;
+}
+
+.cs-col-1{
+    flex: 2;
+}
+
+.cs-col{
+    position: relative;
+    height: 100%;
+    padding: 10em 2em 2em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.cs-link{
+    position: relative;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.cs-link a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: -1.5px;
+    line-height: 125%;
+}
+
+.cs-video-wrapper{
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: #1d1d1d;
+    overflow: hidden;
+    padding: 2em;
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
+
+.cs-video-wrapper video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cs-socials {
+    width: 50%;
+    display: flex;
+    gap: 2em;
+}
+
+.cs-socials .cs-sub-col{
+    flex: 1;
+}
+
+
+.cs-socials .cs-sub-col p{
+    position: relative;
+    color: #fff;
+    transform: translateY(30px);
+    opacity: 0;
+    text-transform: uppercase;
+    font-family: "Times New Roman", serif;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.cs-header h1{
+    color: #fff;
+    text-transform: uppercase;
+    font-family: san-serif;
+    font-size: 500px;
+    font-weight: lighter;
+    line-height: 100%;
+    height: 400px;
+}
+
+.header h1 span{
+    position: relative;
+    display: inline-block;
+    transform: scale(0.75) translateY(500px) rotateY(90deg);
+    transform-origin: bottom;
+}

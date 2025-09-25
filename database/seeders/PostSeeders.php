@@ -17,7 +17,7 @@ class PostSeeders extends Seeder
             [
                 'name' => 'The new era of minimalism?',
                 'slug' => 'New-era-of-minimalism',
-                'image' => 'teste',
+                'image' => 'assets/images/posts/minimalist.jpg',
                 'author' => 'ÉCLAT Editorial',
                 'category' => 'Tendencias',
                 'resume' => 'El minimalismo deja de ser solo estética para convertirse en una declaración de presencia. En la moda contemporánea, lo sencillo trasciende lo básico, revelando poder en cada detalle. ÉCLAT traduce esta tendencia en ensayos que unen silencio visual e impacto emocional. Cada look refleja la belleza de la esencia, nunca del exceso.',
@@ -27,21 +27,21 @@ class PostSeeders extends Seeder
                                     Así, el minimalismo de ÉCLAT no es ausencia, sino potencia. Es la sofisticación que se revela cuando el exceso da paso a la esencia.'
             ],
             [
-                'name' => 'Sostenibilidad en la moda: un compromiso ineludible',
-                'slug' => 'Sostenibilidad-en-la-moda',
-                'image' => 'teste2',
+                'name' => 'Revolución de los Estilos Urbanizados',
+                'slug' => 'revolución-del-estilo-urbano',
+                'image' => 'assets/images/posts/estiloUrbano.jpg',
                 'author' => 'ÉCLAT Editorial',
-                'category' => 'Sostenibilidad',
-                'resume' => 'La sostenibilidad en la moda ya no es una opción, sino una necesidad urgente. En ÉCLAT, creemos que cada elección cuenta y que la industria debe liderar con responsabilidad. Nuestro compromiso se refleja en cada editorial, donde la ética y la estética se entrelazan para crear una narrativa visual que inspira un cambio positivo.',
-                'content' => 'La moda sostenible es más que una tendencia pasajera; es un movimiento que redefine los valores de la industria. En ÉCLAT, entendemos que la sostenibilidad implica un enfoque holístico que abarca desde la producción hasta el consumo.
-                                En nuestro editorial «Sostenibilidad en la moda: un compromiso ineludible», destacamos marcas y diseñadores que priorizan prácticas responsables. Cada prenda seleccionada refleja un equilibrio entre estilo y ética, demostrando que es posible crear belleza sin comprometer el planeta.
-                                La fotografía captura la esencia de esta filosofía, utilizando escenarios naturales y materiales orgánicos para resaltar la conexión entre la moda y el entorno. Cada imagen cuenta una historia de respeto por los recursos y aprecio por la artesanía.
-                                En ÉCLAT, creemos que la moda sostenible es el futuro. A través de nuestros editoriales, buscamos inspirar a nuestra audiencia a tomar decisiones conscientes, promoviendo un cambio positivo en la industria y en el mundo.'
+                'category' => 'Moda',
+                'resume' => 'Lo urbano no es solo un escenario, sino un lenguaje. En las calles, la moda encuentra una energía cruda, espontánea y vibrante. ÉCLAT transforma este movimiento en narrativas visuales que reflejan actitud, juventud y audacia. La ciudad respira estilo, y cada esquina es un escenario.',
+                'content' => 'O estilo urbano nunca esteve tão presente no discurso da moda. Ele transcende o streetwear e se consolida como estética de atitude. É o reflexo de uma geração que habita metrópoles em movimento, buscando identidade em meio ao caos organizado.
+                                A ÉCLAT interpreta essa revolução em um editorial onde a cidade é palco e personagem. Paredes grafitadas, luzes de néon e sombras arquitetônicas se tornam parte da narrativa visual. A moda urbana não é sobre roupas, mas sobre presença.
+                                Tecidos utilitários, cortes assimétricos e combinações ousadas traduzem a energia de quem veste liberdade. O urbano é força, é rebeldia sofisticada.
+                                Nesse manifesto visual, a ÉCLAT mostra que estilo não se prende a passarelas. Ele pulsa nas ruas, no ritmo de quem faz da cidade um eterno editorial.'
             ],
             [
                 'name' => 'El Brillo de la Autenticidad',
                 'slug' => 'El-Brillo-de-la-Autenticidad',
-                'image' => 'teste3',
+                'image' => 'assets/images/posts/autenticidad.jpg',
                 'author' => 'ÉCLAT Studio',
                 'category' => 'Editorial',
                 'resume' => 'En un mundo saturado de imágenes y tendencias efímeras, la autenticidad emerge como el verdadero lujo. En ÉCLAT, celebramos la individualidad y la esencia única de cada persona. Nuestro editorial «El Brillo de la Autenticidad» es un homenaje a aquellos que se atreven a ser ellos mismos, reflejando una belleza que trasciende lo superficial.',
@@ -49,6 +49,18 @@ class PostSeeders extends Seeder
                                 Cada modelo seleccionado para este proyecto representa una historia única, una personalidad que brilla con luz propia. La fotografía busca resaltar estas cualidades, utilizando iluminación natural y composiciones que enfatizan la conexión entre el sujeto y su entorno.
                                 La moda en este editorial no es solo un accesorio, sino una extensión de la identidad de cada persona. Las prendas elegidas reflejan estilos personales y narrativas individuales, creando un diálogo visual que invita a la reflexión sobre lo que significa ser auténtico en un mundo lleno de expectativas.
                                 En ÉCLAT, creemos que la autenticidad es el camino hacia una belleza duradera y significativa. A través de este editorial, esperamos inspirar a nuestra audiencia a abrazar su verdadera esencia y a encontrar el brillo que reside en ser uno mismo.'
+            ],
+            [
+                'name' => 'Belleza en movimiento?',
+                'slug' => 'belleza-movimiento',
+                'image' => 'assets/images/posts/bellezamov.jpg',
+                'author' => 'ÉCLAT Studio',
+                'category' => 'Lifestyle',
+                'resume' => 'El futuro de la estética es dinámico. La belleza no es estática, sino viva, en constante transformación. En ÉCLAT, exploramos el movimiento como narrativa visual, transformando cada gesto en expresión artística. La moda se convierte en danza, poesía, respiración.',
+                'content' => 'La belleza es más que imagen: es movimiento. El editorial «Belleza en movimiento» se sumerge en esta idea, donde la moda se revela en transiciones sutiles, gestos espontáneos y fluidez ininterrumpida.
+                                La estética editorial de ÉCLAT transforma cada clic en un fragmento coreográfico. Tejidos ligeros y estructurados dialogan con cuerpos en acción, revelando cómo el dinamismo potencia la emoción estética.
+                                La fotografía captura no solo poses, sino también respiraciones. Cada mirada, cada desplazamiento, es parte de una narrativa viva. El movimiento aporta vulnerabilidad y fuerza al mismo tiempo.
+                                Este editorial celebra lo efímero. Porque la belleza no necesita durar para ser memorable. Solo necesita ser sentida. Y cuando se mueve, es eterna.'
             ]
         ]);
     }

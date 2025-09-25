@@ -10,15 +10,8 @@
     <title>ÉCLAT</title>
 </head>
 <body class="bg-gray-100 h-screen">
-
-    <x-header.main></x-header.main>
     <main class="max-w-7xl px-2 mx-auto">
         {{ $slot }}
     </main>
     <x-footer.main></x-footer.main>
-
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
-
-    <script src="{{ asset('assets/js/navScript.js') }}"></script></body>
 </html>

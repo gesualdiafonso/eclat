@@ -54,6 +54,44 @@ class ServiciosSeeders extends Seeder
                                 El objetivo es crear carreras sostenibles y exitosas, donde cada talento pueda alcanzar nuevas alturas y dejar una marca duradera en la industria.',
                 'price' => 1500.00
             ],
+            [
+                'name' => 'Book Profesional',
+                'slug' => 'book-profesional',
+                'image' => 'assets/images/servicios/bookprof.png',
+                'category' => json_encode(['Book', 'Fotografía', 'Producción', 'Consultoría de Imagen']),
+                'resume' => 'Portafolio que abre puertas, destacando la versatilidad, el estilo y la autenticidad de cada modelo.',
+                'descript' => 'El book profesional de ÉCLAT está diseñado para destacar el talento de una manera única y sofisticada. Cada sesión fotográfica se planifica para explorar la versatilidad, la expresión y la identidad.
+                            Trabajamos todos los elementos visuales: iluminación, composición, estilismo y dirección, creando un material coherente y memorable.
+                            Además de la fotografía, ofrecemos orientación sobre poses, expresión y narrativa visual, asegurándonos de que cada imagen cuente la historia adecuada.
+                            El book final es una herramienta estratégica que refuerza la presencia del modelo en campañas, editoriales y castings.
+                            Cada detalle está pensado para reflejar profesionalidad, autenticidad y el estándar premium de ÉCLAT.',
+                'price' => 1500.00
+            ],
+            [
+                'name' => 'Coaching de Pasarela',
+                'slug' => 'coaching-pasarela',
+                'image' => 'assets/images/servicios/coaching.png',
+                'category' => json_encode(['Desfile', 'Producción', 'Consultroia', 'Pasarela']),
+                'resume' => 'Experiencias de moda que marcan presencia y dejan una impresión duradera, desde la planificación hasta la ejecución final.',
+                'descript' => 'El coaching de pasarela de ÉCLAT es un viaje de perfeccionamiento técnico y expresivo. Cada modelo aprende a armonizar la postura, el ritmo y el estilo de forma natural e impactante.
+                            Las clases prácticas, personalizadas y orientadas por profesionales experimentados garantizan una evolución rápida y consistente.
+                            Trabajamos aspectos físicos y psicológicos: postura, confianza, expresión facial y lenguaje corporal, permitiendo que cada paso cuente una historia.
+                            El coaching prepara a los modelos para desfiles, campañas y presentaciones, garantizando seguridad y presencia impactante.
+                            Al final de la formación, cada participante irradia confianza, elegancia y autenticidad, traduciendo el concepto en una actuación refinada.',
+                'price' => 1000.00
+            ],
+            [
+                'name' => 'Campañas publicitarias',
+                'slug' => 'campanas-publicitarias',
+                'image' => 'assets/images/servicios/campana.png',
+                'category' => json_encode(['Edición', 'producción', 'publicidad', 'propaganda',]),
+                'resume' => 'Cuente historias sofisticadas que conecten marcas y personas de manera impactante y memorable.',
+                'descript' => 'ÉCLAT produce campañas publicitarias que combinan creatividad, estilo y estrategia. Cada proyecto está concebido para comunicar conceptos de forma clara y sofisticada.
+                            Desde el briefing hasta la ejecución, nuestro equipo se encarga de todos los detalles: dirección de arte, fotografía, estilismo y casting, garantizando la excelencia visual y narrativa.
+                            Las campañas se desarrollan para generar impacto y compromiso, conectando las marcas con el público con autenticidad y sofisticación.
+                            Cada campaña refleja identidad, elegancia e innovación, elevando su marca al nivel de referencia en el mercado de la moda y la publicidad.',
+                'price' => 1200.00
+            ]
 
         ]);
     }

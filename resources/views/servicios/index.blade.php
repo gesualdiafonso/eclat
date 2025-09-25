@@ -8,7 +8,7 @@
 <x-layouts.main>
     <section>
         <h1>Servicios que ofrecemos desde ÉCLAT</h1>
-        <section class="flex flex-row gap-10 my-10 mx-auto">
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 mx-auto">
             @foreach($servicios as $servicio)
                 <article class="flex flex-col gap-2 px-8 py-5 mx-auto bg-gray-900 text-white rounded-3xl">
                     <div class="p-3 text-center w-full">
@@ -25,6 +25,12 @@
                     </ul>
 
                     <p class="text-3xl font-black text-center">U${{ number_format($servicio->price, 2) }}</p>
+
+                    <div class="text-center w-full my-5">
+                        <a href="{{ route('servicios.show', $servicio->id) }}"
+                            class="bg-blue-600 text-white px-10 py-4 hover:bg-blue-700 transition rounded-2xl">
+                            Ver más
+                        </a>
                     </div>
                 </article>
             @endforeach

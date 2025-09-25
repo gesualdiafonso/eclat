@@ -1,19 +1,23 @@
 <x-layouts.main>
 
-    <section class="bg-white p-8 rounded shadow-md text-center">
+    <section class="bg-white p-8 rounded shadow-md relative ">
         <div>
-            <h1 class="text-3xl font-bold mb-4">Éclat Posts!</h1>
+            <h1 class="text-3xl font-bold mb-4 text-center">Éclat Posts!</h1>
             <p class="text-gray-700">Verifique nuestras ultimas postagens</p>
         </div>
-        <div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             @foreach ($post as $pt)
-                <div class="border-b border-gray-300 py-4">
-                    <h2 class="text-xl font-semibold">{{ $pt->name }}</h2>
-                    <p class="text-gray-600">{{ $pt->resume }}</p>
-                    <p class="text-gray-600">{{ $pt->resume }}</p>
-                    <span class="text-sm text-gray-500">
-                        Publicado em: {{ optional($pt->created_at)->format('d/m/Y') ?? 'Sem data' }}
-                    </span>
+                <div class="border-b border-gray-300 py-4 w-1/2 relative">
+                    <div class="absolute w-48 h-32 -z-1">
+                        <img class="w-full h-full overflow-hidden object-cover hover:scale-105 transition-transform duration-300" src="{{ asset($pt->image) }}" alt="{{ $pt->name }}">
+                    </div>
+                    <div class="relative w-full flex flex-col bg-gray-950 h-full mt-20">
+                        <h2 class="text-xl font-semibold">{{ $pt->name }}</h2>
+                        <p class="text-gray-600">{{ $pt->resume }}</p>
+                        <span class="text-sm text-gray-500">
+                            Publicado em: {{ optional($pt->created_at)->format('d/m/Y') ?? 'Sem data' }}
+                        </span>
+                    </div>
                 </div>
             @endforeach
         </div>

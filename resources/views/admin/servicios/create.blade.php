@@ -1,43 +1,69 @@
 <x-layouts.admin>
-    <section class="p-6 max-w-2xl mx-auto">
+    <section>
         <h1 class="text-2xl font-bold mb-6">Criar Serviço</h1>
 
+        {{-- Exibir erros --}}
         @if ($errors->any())
-            <div class="bg-red-100 text-red-700 p-3 rounded mb-4">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>• {{ $error }}</li>
-                    @endforeach
-                </ul>
+            <div class="mb-6 rounded-2xl border border-red-400 bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg">
+                <div class="p-4">
+                    <h2 class="text-xl font-extrabold italic tracking-wide mb-2">Ups... encontramos um problema ✦</h2>
+                    <ul class="space-y-1 text-sm font-medium">
+                        @foreach ($errors->all() as $error)
+                            <li class="flex items-center gap-2">
+                                <span class="inline-block w-2 h-2 bg-white rounded-full"></span>
+                                {{ $error }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         @endif
 
-        <form method="POST" action="{{ route('admin.servicios.store') }}">
+        <form method="POST" action="{{ route('admin.servicios.store') }}" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-4">
-                <label class="block font-bold">Nome</label>
-                <input type="text" name="name" class="w-full border p-2 rounded" required>
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="mb-4">
+                    <label class="block font-bold">Nombre</label>
+                    <input type="text" name="name" class="w-full border p-2 rounded" >
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-bold">Slug</label>
+                    <input type="text" name="slug" class="w-full border p-2 rounded" >
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-bold">Resumo</label>
+                    <textarea name="resume" class="w-full border p-2 rounded" ></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-bold">Descripción</label>
+                    <textarea name="descript" class="w-full border p-2 rounded" ></textarea>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-bold">Categorías</label>
+                    <input type="text" name="category" class="w-full border p-2 rounded">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-bold">Imagen</label>
+                    <input type="file" name="image" accept="image/*" class="w-full border p-2 rounded bg-amber-50">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block font-bold">Precio</label>
+                    <input type="number" step="0.01" name="price" class="w-full border p-2 rounded" >
+                </div>
             </div>
 
-            <div class="mb-4">
-                <label class="block font-bold">Slug</label>
-                <input type="text" name="slug" class="w-full border p-2 rounded" required>
+            <div class="w-full mt-4">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 transition text-white px-6 py-2 rounded-lg shadow-md">
+                    Salvar
+                </button>
             </div>
-
-            <div class="mb-4">
-                <label class="block font-bold">Resumo</label>
-                <textarea name="resume" class="w-full border p-2 rounded"></textarea>
-            </div>
-
-            <div class="mb-4">
-                <label class="block font-bold">Preço</label>
-                <input type="number" step="0.01" name="price" class="w-full border p-2 rounded" required>
-            </div>
-
-            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
-                Salvar
-            </button>
         </form>
     </section>
 </x-layouts.admin>

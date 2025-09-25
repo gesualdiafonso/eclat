@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Servicio;
+
 class ViewController extends Controller
 {
 
     public function home(){
-        return view('welcome');
+        $servicios = Servicio::all();
+
+        return view('welcome', compact('servicios'));
     }
 
     public function about(){

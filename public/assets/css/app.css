@@ -8,7 +8,35 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
 }
+
+@layer utilities {
+    .bg-animated {
+      background: linear-gradient(
+        -45deg,
+        theme(colors.gray.900),
+        theme(colors.black),
+        theme(colors.gray.700),
+        theme(colors.gray.900)
+      );
+      background-size: 400% 400%;
+      animation: bgMove 8s ease-in-out infinite;
+    }
+
+    @keyframes bgMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
+
 
 /*************** Header ***************/
 .cs-logo, .cs-menu-logo{
@@ -27,10 +55,11 @@
 
 .cs-logo a{
     color: #000;
+    z-index: 99;
 }
 
 .cs-menu-logo a {
-    color: #fff
+    color: #000
 }
 
 .cs-menu-toggle{
@@ -54,7 +83,7 @@
 .cs-menu-copy{
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 15%;
     transform: translateY(-50%);
     color: #fff;
     transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -101,8 +130,8 @@
 
 .cs-hamburger{
     position: absolute;
-    top: 60%;
-    left: 60%;
+    top: 0;
+    left: 50%;
     transform: translate(-50%, 50%);
     width: 30px;
     height: 30px;
@@ -110,12 +139,12 @@
     justify-content: center;
     align-items: center;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    opacity: 0;
+    opacity: 1;
 }
 
 .cs-menu-toggle:hover .cs-hamburger,
 .cs-menu-toggle.opened .cs-hamburger{
-    top: 50%;
+    top: 0;
     opacity: 1;
 }
 
@@ -123,7 +152,7 @@
     position: absolute;
     width: 15px;
     height: 1.5px;
-    background-color: #000;
+    background-color: #fff;
     transition-property: transform;
     transition: all 250ms ease-out;
 }
@@ -156,6 +185,7 @@
     transform-style: preserve-3d;
     perspective: 1000px;
     clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    z-index: 1;
 }
 
 .cs-col{
@@ -229,7 +259,6 @@
 }
 
 .cs-header h1{
-    color: #fff;
     text-transform: uppercase;
     font-family: san-serif;
     font-size: 500px;
@@ -243,4 +272,11 @@
     display: inline-block;
     transform: scale(0.75) translateY(500px) rotateY(90deg);
     transform-origin: bottom;
+}
+
+.cs-line{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin: 1rem 0;
 }

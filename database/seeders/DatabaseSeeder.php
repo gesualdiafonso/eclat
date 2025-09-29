@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Database\Seeders\ServiciosSeeder;
+use Database\Seeders\ModelosSeeder;
 use Database\Seeders\PostSeeders;
 use Illuminate\Database\Seeder;
 
@@ -23,7 +24,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ServiciosSeeders::class,
-            PostSeeders::class
+            PostSeeders::class,
+            ModelosSeeder::class
         ]);
     }
 }

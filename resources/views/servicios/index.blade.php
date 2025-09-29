@@ -7,7 +7,7 @@
 
 <x-layouts.main>
     <section>
-        <h1>Servicios que ofrecemos desde ÉCLAT</h1>
+        <h2>Servicios que ofrecemos desde ÉCLAT</h2>
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 mx-auto">
             @foreach($servicios as $servicio)
                 <article class="flex flex-col gap-2 px-8 py-5 mx-auto bg-gray-900 text-white rounded-3xl">

@@ -2,9 +2,10 @@
     <div class="cs-logo"><a href="<?= route('home') ?>" class="uppercase text-bold text-xl fixed"><span>Éclat</span></a></div>
     <div class="cs-menu-toggle closed">
         <div class="cs-menu-toggle-icon">
-            <div class="cs-hamburger closed"></div>
-            <div class="cs-menu-bar" data-position="top"></div>
-            <div class="cs-menu-bar" data-position="bottom"></div>
+            <div class="cs-hamburger closed">
+                <div class="cs-menu-bar" data-position="top"></div>
+                <div class="cs-menu-bar" data-position="bottom"></div>
+            </div>
         </div>
         <div class="cs-menu-copy"><span>Menu</span></div>
     </div>
@@ -57,9 +58,8 @@
             </div>
         </div>
     </div>
-    <div class="cs-header">
-        <h1><span>Éclat</span></h1>
-
+    <div class="cs-header mx-auto">
+        <h1 class="text-gray-50"><span>Éclat</span></h1>
     </div>
 
 </header>

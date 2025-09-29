@@ -2,7 +2,7 @@
 
     <section class="bg-white p-8 rounded shadow-md relative ">
         <div>
-            <h1 class="text-3xl font-bold mb-4 text-center">Éclat Posts!</h1>
+            <h2 class="text-3xl font-bold mb-4 text-center">Éclat Posts!</h2>
             <p class="text-gray-700">Verifique nuestras ultimas postagens</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

@@ -17,6 +17,8 @@ Route::get('/servicios/{id}', [App\Http\Controllers\ServiciosController::class, 
 
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
 
+Route::get('/post/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+
 // Rota de Login y Logou
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 

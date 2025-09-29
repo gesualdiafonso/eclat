@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <title>ÉCLAT</title>
 </head>
-<body class="bg-gray-100 h-screen">
+<body class="bg-gray-100">
 
     <x-header.main></x-header.main>
     <main class="max-w-7xl px-2 mx-auto">

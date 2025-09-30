@@ -19,7 +19,7 @@
                     <a href="<?= route('home')?>" class="">Home</a>
                 </div>
                 <div class="cs-link">
-                    <a href="<?= route('about')?>">About</a>
+                    <a href="<?= route('modelos.index')?>">Modelos</a>
                 </div>
                 <div class="cs-link">
                     <a href="<?= route('servicios.index')?>">Servicio</a>

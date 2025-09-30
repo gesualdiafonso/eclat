@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Modelos;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class ModelosController extends Controller
      */
     public function index()
     {
-        //
+        $modelos = DB::table('modelos')->select('*')->get();
+
+        return view('modelos.index', ['modelos' => $modelos]);
     }
 
     /**
@@ -34,9 +37,11 @@ class ModelosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Modelos $modelos)
+    public function show(int $id)
     {
-        //
+        $modelo = Modelos::findeOrFail($id);
+
+        return view('modelos.show', ['modelo' => $modelo]);
     }
 
     /**

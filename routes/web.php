@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\ViewController::class, 'home'])->name('home');
 
-Route::get('/about', [App\Http\Controllers\ViewController::class, 'about'])->name('about');
+Route::get('/modelos', [App\Http\Controllers\ModelosController::class, 'index'])->name('modelos.index');
+
+Route::get('/modelos/{id}', [App\Http\Controllers\ModelosController::class, 'show'])->name('modelos.show');
 
 Route::get('/servicios', [App\Http\Controllers\ServiciosController::class, 'index'])->name('servicios.index');
 

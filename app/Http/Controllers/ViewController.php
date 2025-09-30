@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Servicio;
 use App\Models\Post;
+use App\Models\Modelos;
 
 class ViewController extends Controller
 {
@@ -16,13 +17,12 @@ class ViewController extends Controller
 
         $lastPost = Post::latest()->first();
 
+        $modelos = Modelos::all();
+
         return view('welcome', [
             'servicios' => $servicios,
             'ultimoPost' => $lastPost,
+            'modelos' => $modelos
         ]);
-    }
-
-    public function about(){
-        return view('about');
     }
 }

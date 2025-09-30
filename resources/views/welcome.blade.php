@@ -92,41 +92,41 @@
     {{-- ******************* Modelos ******************* --}}
     <div class="cs-line"></div>
     <section class="mt-10 flex flex-row gap-10">
-        <div class="w-full flex-1/2 flex flex-col justify-center items-center">
+        <section class="w-1/2 flex flex-col justify-center items-center">
             <div>
                 <h2 class="text-5xl font-bold m-0">Personalidades que hablan, estilos que conectan.</h2>
                 <span class="font-light text-xl mb-5">Un portafolio que reúne profesionales que transmiten confianza, estilo y autenticidad.</span>
             </div>
-            <div>
+            <div class="mt-10"> {{-- Adicionei um mt-10 para separar as duas caixas de texto --}}
                 <p class="text-3xl font-bold m-0">Cada rostro cuenta una historia, cada mirada refleja impacto.</p>
                 <span class="font-light text-xl m-0">En <strong class="uppercase text-bold">éclat</strong> no mostramos modelos: mostramos experiencias vivas.</span>
             </div>
-        </div>
+        </section>
 
-        <div class="uk-position-relative uk-visible-toggle uk-light flex-1/2 p-10" tabindex="-1" uk-slider="center: true">
+        {{-- CONTAINER DO SLIDESHOW CORRIGIDO: Removido p-10 e o uk-slider externo --}}
+        <section class="w-1/2 h-auto relative">
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 300; max-height: 600; animation: push; autoplay: true">
 
-            <div class="uk-slider-items uk-grid">
-                @foreach($servicios as $servicio)
-                    <a  class="uk-width-1-2" href="<?= route('servicios.index')?>">
-                        <div>
-                            <div class="uk-panel uk-card uk-card-default uk-overflow-hidden uk-inline-clip uk-transition-toggle">
-                                <img src="{{ asset($servicio->image) }}" alt="{{ $servicio->name }}" width="500" height="300" alt="">
-                                <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
-                                    <div class="uk-text-center">
-                                        <h3 class="uk-margin-remove">{{ $servicio->name }}</h3>
-                                        <p class="uk-margin-remove">{{ $servicio->resume ?? 'Descubre más sobre este servicio.' }}</p>
-                                    </div>
+                <!-- Items -->
+                <ul class="uk-slideshow-items">
+                    @foreach($modelos as $modelo)
+                        <li>
+                            <a href="{{ route('servicios.index') }}">
+                                <img src="{{ asset($modelo->image) }}" alt="{{ $modelo->name }}" uk-cover-container>
+                                <div class="uk-position-cover uk-overlay uk-light uk- uk-flex uk-flex-center uk-flex-middle">
+                                    <h3 class="uk-margin-remove text-white text-2xl font-light">{{ $modelo->name }}</h3>
                                 </div>
-                            </div>
-                        </div>
-                    </a>
-                @endforeach
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+
+                <!-- Navegação -->
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+
             </div>
-
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
-
-        </div>
+        </section>
     </section>
 
     <section class="mt-10 p-5">
@@ -201,24 +201,6 @@
 
     </section>
 
-    </section>
-
-    <section>
-
-    <div class="grid grid-cols-5 grid-rows-6 gap-4 bg-amber-100">
-        <div class="w-full h-full row-span-2 bg-slate-700">1</div>
-        <div class="w-full h-full col-span-2 row-span-2 col-start-1 row-start-3 bg-slate-700">2</div>
-        <div class="w-full h-full row-span-2 col-start-1 row-start-5 bg-slate-700">3</div>
-        <div class="w-full h-full col-span-2 row-span-2 col-start-2 row-start-5 bg-slate-700">4</div>
-        <div class="w-full h-full row-span-4 col-start-3 row-start-1 bg-slate-700">5</div>
-        <div class="w-full h-full row-span-2 col-start-2 row-start-1 bg-slate-700">6</div>
-        <div class="w-full h-full col-span-2 row-span-2 col-start-4 row-start-1 bg-slate-700">7</div>
-        <div class="w-full h-full row-span-4 col-start-4 row-start-3 bg-slate-700">8</div>
-        <div class="w-full h-full row-span-2 col-start-5 row-start-3 bg-slate-700">9</div>
-        <div class="w-full h-full row-span-2 col-start-5 row-start-5 bg-slate-700">10</div>
-    </div>
-
-    </section>
 
 
 <!-- UIkit JS -->

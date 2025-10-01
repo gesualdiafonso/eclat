@@ -39,7 +39,7 @@ class ModelosController extends Controller
      */
     public function show(int $id)
     {
-        $modelo = Modelos::findeOrFail($id);
+        $modelo = Modelos::findOrFail($id);
 
         return view('modelos.show', ['modelo' => $modelo]);
     }

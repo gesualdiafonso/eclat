@@ -8,30 +8,30 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/', [App\Http\Controllers\ViewController::class, 'home'])->name('home');
+Route::get('/', [\App\Http\Controllers\ViewController::class, 'home'])->name('home');
 
-Route::get('/modelos', [App\Http\Controllers\ModelosController::class, 'index'])->name('modelos.index');
+Route::get('/modelos', [\App\Http\Controllers\ModelosController::class, 'index'])->name('modelos.index');
 
-Route::get('/modelos/{id}', [App\Http\Controllers\ModelosController::class, 'show'])->name('modelos.show');
+Route::get('/modelos/{id}', [\App\Http\Controllers\ModelosController::class, 'show'])->name('modelos.show');
 
-Route::get('/servicios', [App\Http\Controllers\ServiciosController::class, 'index'])->name('servicios.index');
+Route::get('/servicios', [\App\Http\Controllers\ServiciosController::class, 'index'])->name('servicios.index');
 
-Route::get('/servicios/{id}', [App\Http\Controllers\ServiciosController::class, 'show'])->name('servicios.show');
+Route::get('/servicios/{id}', [\App\Http\Controllers\ServiciosController::class, 'show'])->name('servicios.show');
 
-Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
+Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index'])->name('post.index');
 
-Route::get('/post/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
+Route::get('/post/{id}', [\App\Http\Controllers\PostController::class, 'show'])->name('post.show');
 
 // Rota de Login y Logou
-Route::get('/login', [App\Http\Controllers\AuthController::class, 'show'])->name('auth.login.show');
+Route::get('/login', [\App\Http\Controllers\AuthController::class, 'show'])->name('auth.login.show');
 
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'process'])->name('auth.login.process');
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'process'])->name('auth.login.process');
 
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
+Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
 
 // Para Admin
 
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');
+Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');
 
 // Admin - Servicios
 /**
@@ -39,19 +39,19 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'dashboard'])
  */
 Route::prefix('admin/servicios')->name('admin.servicios.')->group(function (){
     // Listar todos los servicios
-    Route::get('/', [App\Http\Controllers\ServiciosController::class, 'servicios'])->name('index');
+    Route::get('/', [\App\Http\Controllers\ServiciosController::class, 'servicios'])->name('index');
 
     // Crear nuevo servicio -> ruta para mostrar el formulario
-    Route::get('/create', [App\Http\Controllers\ServiciosController::class, 'create'])->name('create');
+    Route::get('/create', [\App\Http\Controllers\ServiciosController::class, 'create'])->name('create');
 
     // Ruta para procesar el formulario de creación y almacenar el nuevo servicio
-    Route::post('/', [App\Http\Controllers\ServiciosController::class, 'store'])->name('store');
+    Route::post('/', [\App\Http\Controllers\ServiciosController::class, 'store'])->name('store');
 
     // Detalles de un servicio específico
-    Route::get('/{id}', [App\Http\Controllers\ServiciosController::class, 'details'])->name('details');
+    Route::get('/{id}', [\App\Http\Controllers\ServiciosController::class, 'details'])->name('details');
 
     // Ruta para editar un servicio específico
-    Route::put('/{id}', [App\Http\Controllers\ServiciosController::class, 'update'])->name('update');
+    Route::put('/{id}', [\App\Http\Controllers\ServiciosController::class, 'update'])->name('update');
 
     // Ruta para eliminar un servicio específico
 
@@ -64,24 +64,24 @@ Route::prefix('admin/servicios')->name('admin.servicios.')->group(function (){
 Route::prefix('admin/post')->name('admin.post.')->group(function (){
 
     // Listar todos los posts
-    Route::get('/', [App\Http\Controllers\PostController::class, 'posts'])->name('index');
+    Route::get('/', [\App\Http\Controllers\PostController::class, 'posts'])->name('index');
 
     // Crear nuevo post -> ruta para mostrar el formulario
-    Route::get('/create', [App\Http\Controllers\PostController::class, 'create'])->name('create');
+    Route::get('/create', [\App\Http\Controllers\PostController::class, 'create'])->name('create');
 
     // Ruta para procesar el formulario de creación y almacenar el nuevo post
-    Route::post('/', [App\Http\Controllers\PostController::class, 'store'])->name('store');
+    Route::post('/', [\App\Http\Controllers\PostController::class, 'store'])->name('store');
 
     // Detalles de un post específico
-    Route::get('/{id}', [App\Http\Controllers\PostController::class, 'details'])->name('details');
+    Route::get('/{id}', [\App\Http\Controllers\PostController::class, 'details'])->name('details');
 
     // Ruta para editar un post específico
-    Route::put('/{id}', [App\Http\Controllers\PostController::class, 'update'])->name('update');
+    Route::put('/{id}', [\App\Http\Controllers\PostController::class, 'update'])->name('update');
 
     // Ruta para eliminar un post específico
-    Route::get('/{id}/delete', [App\Http\Controllers\PostController::class, 'delete'])->name('delete');
+    Route::get('/{id}/delete', [\App\Http\Controllers\PostController::class, 'delete'])->name('delete');
 
-    Route::delete('/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('destroy'); // deleta
+    Route::delete('/{id}', [\App\Http\Controllers\PostController::class, 'destroy'])->name('destroy'); // deleta
 });
 
 // Admin - modelos
@@ -91,22 +91,22 @@ Route::prefix('admin/post')->name('admin.post.')->group(function (){
 Route::prefix('admin/modelos')->name('admin.modelos.')->group(function (){
 
     // Listar todos los posts
-    Route::get('/', [App\Http\Controllers\ModelosController::class, 'modelos'])->name('index');
+    Route::get('/', [\App\Http\Controllers\ModelosController::class, 'modelos'])->name('index');
 
     // Crear nuevo post -> ruta para mostrar el formulario
-    Route::get('/create', [App\Http\Controllers\ModelosController::class, 'create'])->name('create');
+    Route::get('/create', [\App\Http\Controllers\ModelosController::class, 'create'])->name('create');
 
     // Ruta para procesar el formulario de creación y almacenar el nuevo post
-    Route::post('/', [App\Http\Controllers\ModelosController::class, 'store'])->name('store');
+    Route::post('/', [\App\Http\Controllers\ModelosController::class, 'store'])->name('store');
 
     // Detalles de un post específico
-    Route::get('/{id}', [App\Http\Controllers\ModelosController::class, 'edit'])->name('edit');
+    Route::get('/{id}', [\App\Http\Controllers\ModelosController::class, 'edit'])->name('edit');
 
     // Ruta para editar un post específico
-    Route::put('/{id}', [App\Http\Controllers\ModelosController::class, 'update'])->name('update');
+    Route::put('/{id}', [\App\Http\Controllers\ModelosController::class, 'update'])->name('update');
 
     // Ruta para eliminar un post específico
-    Route::get('/{id}/delete', [App\Http\Controllers\ModelosController::class, 'delete'])->name('delete');
+    Route::get('/{id}/delete', [\App\Http\Controllers\ModelosController::class, 'delete'])->name('delete');
 
-    Route::delete('/{id}', [App\Http\Controllers\ModelosController::class, 'destroy'])->name('destroy'); // deleta
+    Route::delete('/{id}', [\App\Http\Controllers\ModelosController::class, 'destroy'])->name('destroy'); // deleta
 });

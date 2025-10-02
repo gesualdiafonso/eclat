@@ -44,16 +44,27 @@
                         <span class="title">Admin Modelos</span>
                     </a>
                 </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sing Out</span>
-                    </a>
-                </li>
-
+                @auth
+                    <li>
+                        <form action="{{ route('auth.logout') }}" method="POST" class="text-white hover:text-black focus:text-black">
+                            @csrf
+                                <span class="icon ">
+                                    <ion-icon name="log-out-outline"></ion-icon>
+                                </span>
+                                <button type="submit" class="title text-white hover:text-black text-xl">Sing Out</button>
+                        </form>
+                    </li>
+                    <span class="title text-3xl text-white text-center mx-auto my-10">{{auth()->user()->name}}</span>
+                @else
+                    <li>
+                        <a href="{{ route('auth.login.show') }}">
+                            <span class="icon">
+                                <ion-icon name="aperture-outline"></ion-icon>
+                            </span>
+                            <span class="title">Ingressar</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

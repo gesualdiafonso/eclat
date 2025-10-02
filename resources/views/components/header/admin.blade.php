@@ -24,7 +24,7 @@
                         <span class="icon">
                             <ion-icon name="browsers-outline"></ion-icon>
                         </span>
-                        <span class="title">Servicios</span>
+                        <span class="title">Admin Servicios</span>
                     </a>
                 </li>
 
@@ -33,7 +33,15 @@
                         <span class="icon">
                             <ion-icon name="albums-outline"></ion-icon>
                         </span>
-                        <span class="title">Posts</span>
+                        <span class="title">Admin Posts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.modelos.index') }}">
+                        <span class="icon">
+                            <ion-icon name="aperture-outline"></ion-icon>
+                        </span>
+                        <span class="title">Admin Modelos</span>
                     </a>
                 </li>
 

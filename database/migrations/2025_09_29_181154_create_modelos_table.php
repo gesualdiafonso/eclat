@@ -15,12 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('image');
-            $table->string('ubicacion')->nullable();
-            $table->string('ojos');
             $table->decimal('altura', 5, 2);
+            $table->integer('bust');
+            $table->integer('cintura');
+            $table->integer('zapato');
+            $table->integer('vestido');
+            $table->string('tamano');
+            $table->string('ojos');
             $table->string('cabello');
             $table->date('fecha_nacimiento');
+            $table->string('ubicacion')->nullable();
+            $table->string('instagram')->nullable();
             $table->longText('description');
+            $table->json('estilos');
             $table->timestamps();
         });
     }

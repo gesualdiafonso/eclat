@@ -11,13 +11,24 @@ class Modelos extends Model
     protected $fillable =[
         'name',
         'image',
-        'ubicacion',
-        'ojos',
         'altura',
+        'bust',
+        'cintura',
+        'zapato',
+        'vestido',
+        'tamano',
+        'ojos',
         'cabello',
         'fecha_nacimiento',
+        'ubicacion',
+        'instagram',
         'description',
+        'estilos',
         'create_at',
         'update_at'
+    ];
+
+    protected $cast = [
+        'estilos' => 'array'
     ];
 }

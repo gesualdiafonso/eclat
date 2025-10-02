@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -22,7 +23,11 @@ Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->nam
 Route::get('/post/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('post.show');
 
 // Rota de Login y Logou
-Route::get('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
+Route::get('/login', [App\Http\Controllers\AuthController::class, 'show'])->name('auth.login.show');
+
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'process'])->name('auth.login.process');
+
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'logout'])->name('auth.logout');
 
 // Para Admin
 
@@ -77,4 +82,31 @@ Route::prefix('admin/post')->name('admin.post.')->group(function (){
     Route::get('/{id}/delete', [App\Http\Controllers\PostController::class, 'delete'])->name('delete');
 
     Route::delete('/{id}', [App\Http\Controllers\PostController::class, 'destroy'])->name('destroy'); // deleta
+});
+
+// Admin - modelos
+/**
+ * Uso el prefijo /admin/post para todas las rutas relacionadas con la gestión de posts en el panel de administración.
+ */
+Route::prefix('admin/modelos')->name('admin.modelos.')->group(function (){
+
+    // Listar todos los posts
+    Route::get('/', [App\Http\Controllers\ModelosController::class, 'modelos'])->name('index');
+
+    // Crear nuevo post -> ruta para mostrar el formulario
+    Route::get('/create', [App\Http\Controllers\ModelosController::class, 'create'])->name('create');
+
+    // Ruta para procesar el formulario de creación y almacenar el nuevo post
+    Route::post('/', [App\Http\Controllers\ModelosController::class, 'store'])->name('store');
+
+    // Detalles de un post específico
+    Route::get('/{id}', [App\Http\Controllers\ModelosController::class, 'edit'])->name('edit');
+
+    // Ruta para editar un post específico
+    Route::put('/{id}', [App\Http\Controllers\ModelosController::class, 'update'])->name('update');
+
+    // Ruta para eliminar un post específico
+    Route::get('/{id}/delete', [App\Http\Controllers\ModelosController::class, 'delete'])->name('delete');
+
+    Route::delete('/{id}', [App\Http\Controllers\ModelosController::class, 'destroy'])->name('destroy'); // deleta
 });

@@ -205,7 +205,8 @@
             <div class="flex flex-row gap-10">
                 <div class="w-full">
                     <h3>Contact us</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa exercitationem, dolorem consequatur dolorum ullam modi. Asperiores natus suscipit voluptates laborum molestiae deserunt. Illo quas nihil eos sint dolor pariatur animi!</p>
+                    <span>Tu marca merece presencia, tu visión merece <strong>Éclat</strong></span>
+                    <p>Conectamos talento con propósito! Descubrí como podemos llevar tu identidad a otro nivel.</p>
                 </div>
                 <div class="w-full">
                     <form action="#">

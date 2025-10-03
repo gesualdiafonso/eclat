@@ -4,8 +4,8 @@
     <div class="cardBox">
         <div class="card">
             <div>
-                <div class="number">Numero de Modelos</div>
-                <div class="cardName">Modelos Admin</div>
+                <div class="number">{{ $totalModelos }}</div>
+                <div class="cardName"><a href="{{ route('admin.modelos.index') }}" >Modelos Admin</a></div>
             </div>
             <div class="iconBx">
                 <ion-icon name="briefcase-outline"></ion-icon>
@@ -14,8 +14,8 @@
 
         <div class="card">
             <div>
-                <div class="number">Numero de Serviços</div>
-                <div class="cardName">Serviços Admin</div>
+                <div class="number">{{ $totalServicios }}</div>
+                <div class="cardName"><a href="{{ route('admin.servicios.index') }}" >Serviços Admin</a></div>
             </div>
             <div class="iconBx">
                 <ion-icon name="bar-chart-outline"></ion-icon>
@@ -23,9 +23,9 @@
         </div>
 
         <div class="card">
-            <div>
-                <div class="number">Controle de Postagem</div>
-                <div class="cardName">Postagens Admin</div>
+            <div >
+                <div class="number">{{ $totalPosts }}</div>
+                <div class="cardName"><a href="{{ route('admin.post.index') }}">Postagens Admin</a></div>
             </div>
             <div class="iconBx">
                 <ion-icon name="eye-outline"></ion-icon>

@@ -10,7 +10,8 @@ class ServiciosController extends Controller
     public function index()
     {
         $servicios = Servicio::all();
-        return view('servicios.index', ['servicios' => $servicios]);
+        $totalServicios = Servicio::count();
+        return view('servicios.index', ['servicios' => $servicios, 'totalServicios' => $totalServicios]);
     }
 
     public function show( int $id)

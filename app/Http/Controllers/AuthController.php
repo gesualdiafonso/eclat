@@ -16,6 +16,9 @@ class AuthController extends Controller
 
     public function process(Request $request)
     {
+        // $request->validate([
+        //     'email' => 'required|exist:users'
+        // ]);
         $credentials = $request->only(['email', 'password']);
         if(Auth::attempt($credentials)){
             return to_route('admin.dashboard')->with('success', 'Bienvenido a la Admin');

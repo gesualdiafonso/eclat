@@ -38,22 +38,14 @@
         <div class="cs-col cs-col-1">
             <div class="cs-socials">
                 <div class="cs-sub-col">
-                    <p>Éclat</p>
-                    <p>locations</p>
-                    <p>number</p>
-                    <p>country</p>
+                    <p>Docente:</p>
+                    <p>Santiago Gallino</p>
+                    <p>Portales y Comercio Electronico</p>
                 </div>
                 <div class="cs-sub-col">
-                    <p>Contact:</p>
-                    <p>email@email.com</p>
-                    <p>email@email.com</p>
-                </div>
-                <div class="cs-sub-col">
-                    <p>LinkedIn</p>
-                    <p>Instagram</p>
-                    <p>Twitter</p>
-                    <p>Facebook</p>
-
+                    <p>Alumnos:</p>
+                    <p>Afonso Arruda</p>
+                    <p>Lisa Bauer</p>
                 </div>
             </div>
         </div>

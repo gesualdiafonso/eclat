@@ -20,7 +20,7 @@
             </a>
         </div>
 
-        <div class="overflow-x-auto bg-white rounded shadow">
+        <div class="overflow-x-auto bg-white shadow">
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="bg-gray-200">
@@ -40,13 +40,13 @@
                             <td class="p-3">
                                 <span class="bg-gray-800 text-white px-2 py-1 rounded text-xs">{{ $post->category }}</span>
                             </td>
-                            <td class="p-3 text-center">
+                            <td class="p-3 text-center flex flex-col gap-4">
                                 <a href="{{ route('admin.post.details', $post->id) }}"
-                                    class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition mx-2">
+                                    class="border-2 border-blue-700 text-black px-3 py-1 rounded hover:bg-blue-700 hover:text-white transition duration-500">
                                     Editar
                                 </a>
                                 <a href="{{ route('admin.post.delete', $post->id) }}"
-                                    class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700 transition mx-2">
+                                    class="border-2 border-red-700 text-black px-3 py-1 rounded hover:bg-red-700 hover:text-white transition duration-500">
                                     Deletar
                                 </a>
                             </td>

@@ -20,7 +20,7 @@
             </a>
         </div>
 
-        <div class="overflow-x-auto bg-white rounded shadow">
+        <div class="overflow-x-auto bg-white shadow">
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="bg-gray-200">
@@ -42,10 +42,14 @@
                                     <span class="bg-gray-800 text-white px-2 py-1 rounded text-xs">{{ $cat }}</span>
                                 @endforeach
                             </td>
-                            <td class="p-3 text-center">
+                            <td class="p-3 text-center flex flex-col gap-4">
                                 <a href="{{ route('admin.servicios.details', $servicio->id) }}"
-                                    class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition">
+                                    class="border-2 border-blue-700 text-black px-3 py-1 rounded hover:bg-blue-700 hover:text-white transition duration-500">
                                     Editar
+                                </a>
+                                <a href="{{ route('admin.servicios.delete', $servicio->id) }}"
+                                    class="border-2 border-red-700 text-black px-3 py-1 rounded hover:bg-red-700 hover:text-white transition duration-500">
+                                    Deletar
                                 </a>
                             </td>
                         </tr>

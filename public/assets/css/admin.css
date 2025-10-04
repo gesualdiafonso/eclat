@@ -13,8 +13,8 @@
   --blue: #0D0D0D;
   --white: #FFFFFF;
   --gray: #AFAFAF;
-  --black1: #F5F1E6;
-  --black2: #1E2A38;
+  --black1: #1E2A38;
+  --black2: #003872;
 }
 
 body {
@@ -273,10 +273,12 @@ body {
   position: relative;
   display: grid;
   min-height: 500px;
+  height: 200px;
   background: var(--white);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
+  overflow: auto;
 }
 
 .details .cardHeader {
@@ -365,10 +367,12 @@ body {
   position: relative;
   display: grid;
   min-height: 500px;
+  height: 300px;
   padding: 20px;
   background: var(--white);
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   border-radius: 20px;
+  overflow: auto;
 }
 .recentCustomers .imgBx {
   position: relative;

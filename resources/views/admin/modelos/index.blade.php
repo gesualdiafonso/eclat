@@ -14,40 +14,57 @@
                 </div>
             @endif
             <div class="text-center w-full my-10">
-                <a href="{{ route('admin.servicios.create') }}"
+                <a href="{{ route('admin.modelos.create') }}"
                     class="bg-blue-600 text-white px-10 py-4 hover:bg-blue-700 transition">
                     Adicionar Nuevo Servicio
                 </a>
             </div>
 
-            <div class="overflow-x-auto bg-white rounded shadow">
+            <div class="overflow-x-auto bg-white shadow">
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="bg-gray-200">
                             <th class="p-3">ID</th>
-                            <th class="p-3">Nome</th>
-                            <th class="p-3">Preço</th>
-                            <th class="p-3">Categorias</th>
-                            <th class="p-3 text-center">Ações</th>
+                            <th class="p-3">Name</th>
+                            <th class="p-3">Ubicación</th>
+                            <th class="p-3">Details</th>
+                            <th class="p-3 text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($modelo as $model)
                             <tr class="border-b hover:bg-gray-100">
-                                <td class="p-3">{{ $model->id }}</td>
-                                <td class="p-3 font-semibold">{{ $model->name }}</td>
-                                <td class="p-3">U${{ number_format($model->price, 2) }}</td>
+                                <td class="p-3"><span>{{ $model->id }}</span></td>
+                                <td class="p-3 font-semibold"><h2>{{ $model->name }}</h2></td>
+                                <td>{{ $model->ubicacion }}</td>
+                                <td class="p-3">
+                                    <ul class="grid grid-cols-4 gap-4">
+                                        <li>Altura: {{ $model->altura}}</li>
+                                        <li>Bust: {{ $model->bust}}</li>
+                                        <li>Cintura: {{ $model->cintura}}</li>
+                                        <li>Zapatilla: {{ $model->zapato}}</li>
+                                        <li>Tamaño: {{ $model->tamano}}</li>
+                                        <li>Ojos: {{ $model->ojo}}</li>
+                                        <li>Cabello: {{ $model->cabello}}</li>
+                                        <li>Instagram: {{ $model->instagram}}</li>
+                                    </ul>
+                                </td>
                                 {{-- <td class="p-3">
                                     @foreach (json_decode($model->category) ?? [] as $cat)
                                         <span class="bg-gray-800 text-white px-2 py-1 rounded text-xs">{{ $cat }}</span>
                                     @endforeach
                                 </td> --}}
-                                <td class="p-3 text-center">
-                                    <a href="{{ route('admin.servicios.details', $model->id) }}"
-                                        class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition">
+                                <td class="p-3 text-center flex flex-col gap-4">
+                                    <a href="{{ route('admin.modelos.edit', $model->id) }}"
+                                        class="border-2 border-blue-700 text-black px-3 py-1 rounded hover:bg-blue-700 hover:text-white transition duration-500">
                                         Editar
                                     </a>
+                                    <a href="{{ route('admin.modelos.delete', $model->id) }}"
+                                        class="border-2 border-red-700 text-black px-3 py-1 rounded hover:bg-red-700 hover:text-white transition duration-500">
+                                        Borrar
+                                    </a>
                                 </td>
+
                             </tr>
                         @empty
                             <tr>

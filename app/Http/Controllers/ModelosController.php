@@ -131,6 +131,13 @@ class ModelosController extends Controller
         return redirect()->route('admin.modelos.index', $modelos->id)->with('success', 'Modelo actualizado con exito');
     }
 
+    public function delete(int $id)
+    {
+        $modelo = Modelos::findOrFail($id);
+
+        return view('admin.modelos.delete', ['modelo' => $modelo]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */

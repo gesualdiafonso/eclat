@@ -27,8 +27,7 @@
             {{-- Confirmação de exclusão --}}
             <div class="p-6 bg-gray-50 border-t border-gray-200">
                 <p class="text-red-600 font-medium mb-4 text-center">
-                    ⚠️ Tem certeza que deseja deletar este post? Essa ação não pode ser desfeita.
-                </p>
+                    ⚠️ Tiene certeza que desea borrar este Post? Esta acción no va poder volver sus valores.
 
                 <form method="POST" action="{{ route('admin.post.destroy', $post->id) }}"
                       onsubmit="return confirm('Você tem certeza que deseja deletar este post?')">

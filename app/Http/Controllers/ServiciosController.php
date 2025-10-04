@@ -124,4 +124,16 @@ class ServiciosController extends Controller
 
         return redirect()->route('admin.servicios.index', $servicios->id)->with('success', 'Servicio actualizado con éxito.');
     }
+
+    public function delete( int $id){
+        $servicio = Servicio::findOrFail($id);
+
+        return view('admin.servicios.delete', ['servicio' => $servicio]);
+    }
+
+    public function destroy(int $id){
+        $servicio = Servicio::findOrFail($id);
+        $servicio->delete();
+        return redirect()->route('admin.servicios.index')->with('success', 'Servicio ha sido eliminado con exito');
+    }
 }

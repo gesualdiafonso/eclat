@@ -14,8 +14,11 @@ class AdminController extends Controller
         $totalServicios = Servicio::count();
         $totalPosts = Post::count();
         $totalModelos = Modelos::count();
+        $allModelos = Modelos::all();
+        $allServicios = Servicio::all();
+        $allPosts = Post::all();
 
 
-        return view('admin.dashboard', compact('totalServicios', 'totalPosts', 'totalModelos'));
+        return view('admin.dashboard', compact('totalServicios', 'totalPosts', 'totalModelos', 'allModelos', 'allServicios', 'allPosts'));
     }
 }

@@ -32,6 +32,7 @@ Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])-
 
 // ****************************************************
 // ******************* Para Admin *********************
+// ****************************************************
 
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'dashboard'])
     ->name('admin.dashboard')

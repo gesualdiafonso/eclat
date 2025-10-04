@@ -19,7 +19,7 @@ class ViewController extends Controller
 
         $modelos = Modelos::all();
 
-        return view('welcome', [
+        return view('home', [
             'servicios' => $servicios,
             'ultimoPost' => $lastPost,
             'modelos' => $modelos

@@ -5,7 +5,7 @@
         </h2>
 
         {{-- Grid estilo Pinterest --}}
-        <div class="grid grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach($modelos as $model)
                 <div class="mb-6 break-inside-avoid group relative overflow-hidden shadow-xl shadow-black/40 bg-white">
 

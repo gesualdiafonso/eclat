@@ -6,9 +6,26 @@
 
 
 <x-layouts.main>
-    <section class="">
-        <section class="max-w-7xl px-2 mx-auto">
-            <h2>Servicios que ofrecemos desde ÉCLAT</h2>
+    <section class="relative h-auto bg-black mb-16">
+        <div class="relative w-full h-auto">
+            <div>
+                <img src="{{ asset('assets/images/eclat_background/3.jpg') }}" alt="Explore la moda Argentina, Fashion Weck Argentina 24 de mayo 2025">
+            </div>
+            <div class="absolute bottom-0 lg:bottom-10 text-white w-full py-10 px-16 left-5">
+                <h2 class="text-white text-xl md:text-3xl lg:text-5xl font-bold w-full md:w-1/2 m-0">Servicios exclusivos para su marca en la semana de la Moda en Argnetina</h2>
+            </div>
+        </div>
+    </section>
+    <section class="max-w-7xl px-2 mx-auto">
+        <div>
+            <div class="flex flex-col justify-center items-center">
+                <h2 class="uppercase tracking-widest text-[#2a2185] text-xl md:text-3xl lg:text-5xl font-extrabold">
+                    Confira los servicios que ofrecemos desde ÉCLAT
+                </h2>
+                <span class="mt-4 text-[#00ccff] text-xl font-semibold italic">
+                    Descubre la exclusividad en cada servicio
+                </span>
+            </div>
             <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-10 mx-auto">
                 @foreach($servicios as $servicio)
                     <article class="flex flex-col gap-2 px-8 py-5 mx-auto bg-white shadow-xl shadow-black/40">

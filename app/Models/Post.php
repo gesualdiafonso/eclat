@@ -16,7 +16,6 @@ class Post extends Model
         'category',
         'resume',
         'content',
-        'create_at',
-        'update_at'
     ];
+    public $timestamps = true;
 }

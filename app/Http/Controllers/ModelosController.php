@@ -39,15 +39,21 @@ class ModelosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
+            'name' => 'required|string|max:255|unique:modelos,name',
+            'image' => 'required|image|mimes:jpg,jpeg, png,webp|max:2048',
+            'altura' => 'required|numeric|min:0',
+            'bust' => 'required|numeric|min:0',
+            'cintura' => 'required|numeric|min:0',
+            'zapato' => 'required|numeric|min:0',
+            'vestido' => 'required|numeric|min:0',
+            'tamano' => 'required|string|max:10',
+            'ojos' => 'required|string|max:50',
+            'cabello' => 'required|string|max:60',
+            'fecha_nacimiento' => '',
+            'ubicacion' => 'nullable|string|max:255',
+            'instagram' => 'nullable|string|max:100',
+            'description' => 'required|string',
+            'estilos' => 'required|string',
         ]);
 
         $data = $request->except(['_token']);
@@ -55,18 +61,23 @@ class ModelosController extends Controller
         if($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time(). '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('assets/images/modelos');
+            $destinationPath = public_path('assets/images/modelos_eclat');
 
             if(!file_exists($destinationPath)){
-                mkdir($destinationPath, 077, true);
+                mkdir($destinationPath, 0777, true);
             }
 
             $image->move($destinationPath, $imageName);
 
-            $data['image'] = 'assets/images/modelos' . $imageName;
+            $data['image'] = 'assets/images/modelos_eclat/' . $imageName;
         }
 
-        Modelos::created($data);
+        if (!empty($data['estilos'])) {
+            $estilos = array_map('trim', explode(',', $data['estilos']));
+            $data['estilos'] = json_encode($estilos);
+        }
+
+        Modelos::create($data);
 
         return redirect()->route('admin.modelos.index')->with('success', 'Modelo creado con el éxitos.');
     }
@@ -96,26 +107,32 @@ class ModelosController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $modelos = Modelos::findOrFail($id);
+        $modelo = Modelos::findOrFail($id);
 
         $request->validate([
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
-            '' => '',
+            'name' => 'required|string|max:255|unique:modelos,name,' . $id,
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'altura' => 'required|numeric|min:0',
+            'bust' => 'required|integer|min:0',
+            'cintura' => 'required|integer|min:0',
+            'zapato' => 'required|integer|min:0',
+            'vestido' => 'required|integer|min:0',
+            'tamano' => 'required|string|max:10',
+            'ojos' => 'required|string|max:50',
+            'cabello' => 'required|string|max:60',
+            'fecha_nacimiento' => 'required|date',
+            'ubicacion' => 'nullable|string|max:255',
+            'instagram' => 'nullable|string|max:255',
+            'description' => 'required|string',
+            'estilos' => 'required|string',
         ]);
 
         $data = $request->except(['_token']);
 
         if ($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('assets/images/modelos');
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('assets/images/modelos_eclat');
 
             if (!file_exists($destinationPath)) {
                 mkdir($destinationPath, 0777, true);
@@ -123,12 +140,15 @@ class ModelosController extends Controller
 
             $image->move($destinationPath, $imageName);
 
-            $data['image'] = 'assets/images/modelos/' . $imageName;
+            $data['image'] = 'assets/images/modelos_eclat/' . $imageName;
         }
 
-        $modelos->update($data);
+        // transformar estilos em JSON
+        $data['estilos'] = json_encode(explode(',', $request->input('estilos')));
 
-        return redirect()->route('admin.modelos.index', $modelos->id)->with('success', 'Modelo actualizado con exito');
+        $modelo->update($data);
+
+        return redirect()->route('admin.modelos.index')->with('success', 'Modelo actualizado con éxito');
     }
 
     public function delete(int $id)

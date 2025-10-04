@@ -39,12 +39,11 @@ class PostController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:post,slug',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'image' => 'image|mimes:jpg,jpeg,png,webp|max:2048',
             'author' => 'required|string|max:255',
             'category' => 'nullable|string',
             'resume' => 'required|string',
             'content' => 'required|string',
-            'create_at' => 'nullable|date',
         ]);
 
         // guarda en la dato todo los valores del formulario menos el token llamado de Blacklisting

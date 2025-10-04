@@ -24,8 +24,6 @@ class Modelos extends Model
         'instagram',
         'description',
         'estilos',
-        'create_at',
-        'update_at'
     ];
 
     protected $cast = [

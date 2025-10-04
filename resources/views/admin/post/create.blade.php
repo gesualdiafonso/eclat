@@ -108,9 +108,22 @@
                 }
             });
 
+            // const form = document.querySelector("form");
+            // form.onsubmit = function() {
+            //     document.querySelector("#content").value = quill.root.innerHTML;
+            // };
+
+            const contentInput = document.querySelector("#content");
+
+            // Atualiza em tempo real
+            quill.on('text-change', function () {
+                contentInput.value = quill.root.innerHTML.trim();
+            });
+
+            // Garantia no submit
             const form = document.querySelector("form");
             form.onsubmit = function() {
-                document.querySelector("#content").value = quill.root.innerHTML;
+                contentInput.value = quill.root.innerHTML.trim();
             };
         });
     </script>

@@ -6,6 +6,7 @@
 
 
 <x-layouts.main>
+    <x-slot:title>Éclat Servicios, el mejor casting encuentras aquí!</x-slot:title>
     <section class="relative h-auto bg-black mb-16">
         <div class="relative w-full h-auto">
             <div>

@@ -1,0 +1,1 @@
+<a href="<?= route($route)?>" class="">{{ $slot }}</a>

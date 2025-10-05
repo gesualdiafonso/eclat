@@ -1,6 +1,7 @@
 <x-layouts.main>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.12/dist/css/uikit.min.css" />
+    <x-slot:title>Éclat, su agencia de modelos exclusivo!</x-slot:title>
 
     <section class="relative h-auto bg-black">
         <div class="relative">

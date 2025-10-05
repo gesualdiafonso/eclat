@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB; // Add this line
 use Illuminate\Http\Request; // Import the Request class
 use App\Models\Post; // Import the Post model
+use App\Models\Servicio;
 
 class PostController extends Controller
 {
     public function index()
     {
         $post = DB::table('post')->select('*')->get();
-        return view('post.index', ['post' => $post]);
+        $lastPost = DB::table('post')->orderBy('created_at', 'desc')->first();
+        return view('post.index', ['post' => $post, 'lastPost' => $lastPost]);
     }
 
     public function show( int $id)

@@ -1,4 +1,5 @@
 <x-layouts.main>
+    <x-slot:title>Éclat Modelos, busque el mejor team para su marca!</x-slot:title>
     <section class="max-w-7xl mx-auto px-4 py-12">
         <h2 class="text-4xl font-bold text-center text-[#2a2185] uppercase tracking-wide mb-12">
             Modelos ÉCLAT

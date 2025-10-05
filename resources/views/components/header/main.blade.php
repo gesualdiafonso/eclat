@@ -16,16 +16,19 @@
 
             <div class="cs-links">
                 <div class="cs-link">
-                    <a href="<?= route('home')?>" class="">Home</a>
+                    <x-nav-link route="home">Home</x-nav-link>
                 </div>
                 <div class="cs-link">
-                    <a href="<?= route('modelos.index')?>">Modelos</a>
+                    <x-nav-link route="modelos.index">Modelos</x-nav-link>
+                    {{-- <a href="<?= route('modelos.index')?>">Modelos</a> --}}
                 </div>
                 <div class="cs-link">
-                    <a href="<?= route('servicios.index')?>">Servicio</a>
+                    <x-nav-link route="servicios.index">Servicios</x-nav-link>
+                    {{-- <a href="<?= route('servicios.index')?>">Servicio</a> --}}
                 </div>
                 <div class="cs-link">
-                    <a href="<?= route('post.index')?>">Posts</a>
+                    <x-nav-link route="post.index">Posts</x-nav-link>
+                    {{-- <a href="<?= route('post.index')?>">Posts</a> --}}
                 </div>
             </div>
 

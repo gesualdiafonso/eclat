@@ -14,10 +14,15 @@
                 </div>
             @endif
             <div class="text-center w-full my-10">
-                <a href="{{ route('admin.modelos.create') }}"
+                <x-nav-link route="admin.modelos.create">
+                    <span class="bg-blue-600 text-white px-10 py-4 hover:bg-blue-700 transition">
+                        Agregar Nuevo Modelo
+                    </span>
+                </x-nav-link>
+                {{-- <a href="{{ route('admin.modelos.create') }}"
                     class="bg-blue-600 text-white px-10 py-4 hover:bg-blue-700 transition">
                     Adicionar Nuevo Servicio
-                </a>
+                </a> --}}
             </div>
 
             <div class="overflow-x-auto bg-white shadow">
@@ -55,6 +60,16 @@
                                     @endforeach
                                 </td> --}}
                                 <td class="p-3 text-center flex flex-col gap-4">
+                                    {{-- <x-nav-link route="admin.modelos.edit">
+                                        <span class="border-2 border-blue-700 text-black px-3 py-1 rounded hover:bg-blue-700 hover:text-white transition duration-500">
+                                            Editar
+                                        </span>
+                                    </x-nav-link>
+                                    <x-nav-link route="admin.modelos.delete">
+                                        <span class="border-2 border-red-700 text-black px-3 py-1 rounded hover:bg-red-700 hover:text-white transition duration-500">
+                                            Borrar
+                                        </span>
+                                    </x-nav-link> --}}
                                     <a href="{{ route('admin.modelos.edit', $model->id) }}"
                                         class="border-2 border-blue-700 text-black px-3 py-1 rounded hover:bg-blue-700 hover:text-white transition duration-500">
                                         Editar

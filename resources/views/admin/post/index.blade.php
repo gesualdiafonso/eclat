@@ -14,10 +14,15 @@
             </div>
         @endif
         <div class="text-center w-full my-10">
-            <a href="{{ route('admin.post.create') }}"
+            <x-nav-link route="admin.post.create">
+                <span class="bg-blue-600 text-white px-10 py-4 hover:bg-blue-700 transition">
+                    Agregar Nuevo Post
+                </span>
+            </x-nav-link>
+            {{-- <a href="{{ route('admin.post.create') }}"
                 class="bg-blue-600 text-white px-10 py-4 hover:bg-blue-700 transition">
                 Adicionar Nuevo Post
-            </a>
+            </a> --}}
         </div>
 
         <div class="overflow-x-auto bg-white shadow">

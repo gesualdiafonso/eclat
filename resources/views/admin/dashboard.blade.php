@@ -3,7 +3,10 @@
         <div class="card">
             <div>
                 <div class="number">{{ $totalModelos }}</div>
-                <div class="cardName"><a href="{{ route('admin.modelos.index') }}" >Modelos Admin</a></div>
+                <div class="cardName">
+                    <x-nav-link route="admin.modelos.index">Modelos Admin</x-nav-link>
+                    {{-- <a href="{{ route('admin.modelos.index') }}" >Modelos Admin</a> --}}
+                </div>
             </div>
             <div class="iconBx">
                 <ion-icon name="briefcase-outline"></ion-icon>
@@ -13,7 +16,10 @@
         <div class="card">
             <div>
                 <div class="number">{{ $totalServicios }}</div>
-                <div class="cardName"><a href="{{ route('admin.servicios.index') }}" >Serviços Admin</a></div>
+                <div class="cardName">
+                    <x-nav-link route="admin.servicios.index">Servicios Admin</x-nav-link>
+                    {{-- <a href="{{ route('admin.servicios.index') }}" >Serviços Admin</a> --}}
+                </div>
             </div>
             <div class="iconBx">
                 <ion-icon name="bar-chart-outline"></ion-icon>
@@ -23,7 +29,10 @@
         <div class="card">
             <div >
                 <div class="number">{{ $totalPosts }}</div>
-                <div class="cardName"><a href="{{ route('admin.post.index') }}">Postagens Admin</a></div>
+                <div class="cardName">
+                    <x-nav-link route="admin.post.index">Post Admin</x-nav-link>
+                    {{-- <a href="{{ route('admin.post.index') }}">Postagens Admin</a> --}}
+                </div>
             </div>
             <div class="iconBx">
                 <ion-icon name="eye-outline"></ion-icon>
@@ -47,7 +56,8 @@
         <div class="recentOrders">
             <div class="cardHeader">
                 <h2> All Services Actives </h2>
-                <a href="{{ route('admin.servicios.index') }}" class="btn">View All</a>
+                <x-nav-link route="admin.servicios.index"><span class="btn">View All</span></x-nav-link>
+                {{-- <a href="{{ route('admin.servicios.index') }}" class="btn">View All</a> --}}
             </div>
 
             <table>
@@ -73,10 +83,13 @@
                             </td>
                             <td><span class="status return">Active</span></td>
                             <td>
-                                <a href="{{ route('admin.servicios.details', $servicios->id) }}"
+                                <x-nav-link route="admin.servicios.index" >
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition">Editar</span>
+                                </x-nav-link>
+                                {{-- <a href="{{ route('admin.servicios.details', $servicios->id) }}"
                                     class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition">
                                     Editar
-                                </a>
+                                </a> --}}
                             </td>
                         </tr>
                     @endforeach
@@ -88,7 +101,8 @@
         <div class="recentCustomers">
             <div class="cardHeader">
                 <h2> All modelos </h2>
-                <a href="{{ route('admin.modelos.index') }}" class="btn">View All</a>
+                <x-nav-link route="admin.modelos.index"><span class="btn">View All</span></x-nav-link>
+                {{-- <a href="{{ route('admin.modelos.index') }}" class="btn">View All</a> --}}
             </div>
 
             <table>

@@ -3,46 +3,74 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="{{ route('home') }}">
+                    <x-nav-link route="home">
                         <img src="{{ asset('assets/images/logos/logoEclat.ico') }}" alt="Éclat Logo" class="icon">
                         <span class="title">Éclat</span>
-                    </a>
+                    </x-nav-link>
+                    {{-- <a href="{{ route('home') }}">
+                        <img src="{{ asset('assets/images/logos/logoEclat.ico') }}" alt="Éclat Logo" class="icon">
+                        <span class="title">Éclat</span>
+                    </a> --}}
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.dashboard') }}">
+                    <x-nav-link route="admin.dashboard">
                         <span class="icon">
                             <ion-icon name="analytics-outline"></ion-icon>
                         </span>
                         <span class="title">Dashboard</span>
-                    </a>
+                    </x-nav-link>
+                    {{-- <a href="{{ route('admin.dashboard') }}">
+                        <span class="icon">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a> --}}
 
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.servicios.index') }}">
+                    <x-nav-link route="admin.servicios.index">
                         <span class="icon">
                             <ion-icon name="browsers-outline"></ion-icon>
                         </span>
                         <span class="title">Admin Servicios</span>
-                    </a>
+                    </x-nav-link>
+                    {{-- <a href="{{ route('admin.servicios.index') }}">
+                        <span class="icon">
+                            <ion-icon name="browsers-outline"></ion-icon>
+                        </span>
+                        <span class="title">Admin Servicios</span>
+                    </a> --}}
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.post.index') }}">
+                    <x-nav-link route="admin.post.index">
                         <span class="icon">
                             <ion-icon name="albums-outline"></ion-icon>
                         </span>
                         <span class="title">Admin Posts</span>
-                    </a>
+                    </x-nav-link>
+                    {{-- <a href="{{ route('admin.post.index') }}">
+                        <span class="icon">
+                            <ion-icon name="albums-outline"></ion-icon>
+                        </span>
+                        <span class="title">Admin Posts</span>
+                    </a> --}}
                 </li>
                 <li>
-                    <a href="{{ route('admin.modelos.index') }}">
+                    <x-nav-link route="admin.modelos.index">
                         <span class="icon">
                             <ion-icon name="aperture-outline"></ion-icon>
                         </span>
                         <span class="title">Admin Modelos</span>
-                    </a>
+                    </x-nav-link>
+                    {{-- <a href="{{ route('admin.modelos.index') }}">
+                        <span class="icon">
+                            <ion-icon name="aperture-outline"></ion-icon>
+                        </span>
+                        <span class="title">Admin Modelos</span>
+                    </a> --}}
                 </li>
                 @auth
                     <li>

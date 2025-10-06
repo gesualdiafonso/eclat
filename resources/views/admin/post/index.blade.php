@@ -40,8 +40,8 @@
                     @forelse ($posts as $post)
                         <tr class="border-b hover:bg-gray-100">
                             <td class="p-3">{{ $post->id }}</td>
-                            <td class="p-3 font-semibold">{{ $post->name }}</td>
-                            <td class="p-3">Autho: {{ $post->author }}</td>
+                            <td class="p-3 font-semibold"><h2>{{ $post->name }}</h2></td>
+                            <td class="p-3"><p>Autho: {{ $post->author }}</p></td>
                             <td class="p-3">
                                 <span class="bg-gray-800 text-white px-2 py-1 rounded text-xs">{{ $post->category }}</span>
                             </td>

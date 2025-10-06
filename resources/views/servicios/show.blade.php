@@ -8,14 +8,14 @@
 
     <section class="bg-white p-8 rounded shadow-md text-center">
         <div class="border-b border-gray-300 py-4">
-            <div class="flex flex-row gap-10">
+            <div class="flex flex-col md:flex-row gap-10">
                 <div class="w-full flex-1/2">
                     <img class="w-full rounded-2xl" src="{{ asset($servicios->image) }}" alt="{{ $servicios->name }}">
                 </div>
                 <div class="w-full flex-col gpa-10 justify-between">
                     <div class="w-full">
                         <h2 class="text-3xl font-semibold my-2">{{ $servicios->name }}</h2>
-                        <p class="text-gray-600 my-2">{{ $servicios->descript }}</p>
+                        <p class="text-gray-600 text-end my-2">{{ $servicios->descript }}</p>
                         <span class="text-gray-700">{{ $servicios->slug }}</span>
                         <ul class="flex flex-row gap-3 flex-wrap px-5 italic my-5 font-bold justify-center">
                             @foreach (json_decode($servicios->category) as $category)

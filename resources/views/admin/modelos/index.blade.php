@@ -6,7 +6,7 @@
     ?>
 
         <section class="p-8">
-            <h1 class="text-3xl font-bold mb-6">Servicios</h1>
+            <h1 class="text-3xl font-bold mb-6">Modelos</h1>
 
             @if (session('success'))
                 <div class="bg-green-100 text-green-700 p-3 rounded mb-4">

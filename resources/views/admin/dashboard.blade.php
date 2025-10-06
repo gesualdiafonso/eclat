@@ -1,4 +1,5 @@
 <x-layouts.admin>
+    <h1 class="hidden">Dashboard</h1>
     <div class="cardBox">
         <div class="card">
             <div>
@@ -112,7 +113,7 @@
                             <div class="imgBx"><img src="{{ $modelos->image }}" alt="{{ $modelos->name }}"></div>
                         </td>
                         <td>
-                            <h4>{{ $modelos->name }}</h4>
+                            <h3>{{ $modelos->name }}</h3>
                             <span>{{ $modelos->ubicacion }}</span>
                         </td>
                     </tr>

@@ -29,8 +29,8 @@
             </div>
             <div class="absolute bottom-0 md:bottom-24 left-0 md:left-10 w-full md:w-1/2 md:py-10 px-2 md:px-16
                         max-md:bottom-10 max-md:left-0 max-md:px-6 max-md:w-full">
-                <h2 class="text-white font-bold text-2xl max-md:text-4xl">Cada detalle revela una historia.</h2>
-                <p class="w-2/3 max-md:w-full text-base max-md:text-sm text-white">
+                <h2 class="text-white font-bold text-2xl max-md:text-4xl m-0">Cada detalle revela una historia.</h2>
+                <p class="w-full max-md:w-full text-base max-md:text-sm text-white">
                     En ÉCLAT, nacimos para transformar talento en impacto.
                     Creemos que la moda no es solo estética, es lenguaje, identidad y visión.
                     Nuestra esencia: unir marcas con profesionales que elevan cada proyecto a un nivel único.
@@ -48,8 +48,8 @@
             </div>
             <div class="absolute bottom-0 left-0 md:left-10 w-full md:w-1/2 md:py-10 px-2 md:px-16
                         max-md:bottom-10 max-md:left-0 max-md:px-6 max-md:w-full">
-                <h2 class="text-white font-bold text-2xl max-md:text-4xl">No llevamos rostros, llevaos talentos.</h2>
-                <p class="w-full max-md:w-full text-base max-md:text-sm text-white">
+                <h2 class="text-white font-bold text-2xl max-md:text-4xl m-0">No llevamos rostros, llevaos talentos.</h2>
+                <p class="w-full hidden md:block max-md:w-full text-base max-md:text-sm text-white">
                     La importancia de la marca en agenciar modelos, no se trata solo de llevar un rostro.
                     Se trata de llevar conexión de talentos con una visión capacitada para comunicar la mejor manera de su marca.
                     Cada modelo aporta personalidad, presencia y estilo, que son evaluados según la campaña.

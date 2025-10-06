@@ -5,7 +5,7 @@
         <form method="POST" action="{{ route('admin.modelos.store') }}" enctype="multipart/form-data" >
             @csrf
 
-            <div class="w-full grid grid-cols-2 gap-10">
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10">
                 {{-- Nombre --}}
                 <div class="mb-4">
                     <label class="block font-bold">Nombre</label>
@@ -20,7 +20,7 @@
                     @error('instagram') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
                 </div>
 
-                <div class="grid grid-cols-4 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
                     {{-- Altura --}}
                     <div class="mb-4">
                         <label class="block font-bold">Altura (cm)</label>

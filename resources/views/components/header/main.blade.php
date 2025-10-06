@@ -30,6 +30,9 @@
                     <x-nav-link route="post.index">Posts</x-nav-link>
                     {{-- <a href="<?= route('post.index')?>">Posts</a> --}}
                 </div>
+                <div class="cs-link">
+                    <x-nav-link route="auth.login.show">Login</x-nav-link>
+                </div>
             </div>
 
             <div class="cs-video-wrapper">

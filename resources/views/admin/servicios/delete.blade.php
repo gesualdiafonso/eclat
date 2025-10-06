@@ -34,7 +34,7 @@
                     ⚠️ Tiene certeza que desea borrar este Servicio? Esta acción no va poder volver sus valores.
                 </p>
 
-                <form method="servicio" action="{{ route('admin.servicios.destroy', $servicio->id) }}"
+                <form method="POST" action="{{ route('admin.servicios.destroy', $servicio->id) }}"
                       onsubmit="return confirm('Você tem certeza que deseja deletar este servicio?')">
                     @csrf
                     @method('DELETE')

@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <title>ÉCLAT</title>
 </head>
-<body class="bg-gray-100 h-screen">
-    <main class="max-w-7xl px-2 mx-auto">
+<body>
+    <main>
         {{ $slot }}
     </main>
-    <x-footer.main></x-footer.main>
 </html>

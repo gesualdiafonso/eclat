@@ -47,7 +47,7 @@
                     ⚠️ Tiene certeza que desea borrar este(a) modelo? Esta acción no va poder volver sus valores.
                 </p>
 
-                <form method="modelo" action="{{ route('admin.modelos.destroy', $modelo->id) }}"
+                <form method="POST" action="{{ route('admin.modelos.destroy', $modelo->id) }}"
                       onsubmit="return confirm('Você tem certeza que deseja deletar este modelo?')">
                     @csrf
                     @method('DELETE')

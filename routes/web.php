@@ -67,14 +67,14 @@ Route::prefix('admin/servicios')->name('admin.servicios.')->group(function (){
             ->middleware('auth');
 
     // Ruta para eliminar un servicio específico
+    // Ruta para eliminar un post específico
     Route::get('/{id}/delete', [\App\Http\Controllers\ServiciosController::class, 'delete'])
             ->name('delete')
             ->middleware('auth');
 
-    Route::delete('/{id}', [\App\Http\Controllers\PostController::class, 'destroy'])
+    Route::delete('/{id}', [\App\Http\Controllers\ServiciosController::class, 'destroy'])
             ->name('destroy')
-            ->middleware('auth'); // deleta
-
+            ->middleware('auth');
 });
 
 // Admin - Post

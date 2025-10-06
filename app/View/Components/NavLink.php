@@ -8,13 +8,13 @@ use Illuminate\View\Component;
 
 class NavLink extends Component
 {
-    public string $route;
+    // public string $route;
     /**
      * Create a new component instance.
      */
-    public function __construct(string $route)
+    public function __construct(public string $route)
     {
-        $this->route = $route;
+        // $this->route = $route;
     }
 
     /**
@@ -23,5 +23,6 @@ class NavLink extends Component
     public function render(): View|Closure|string
     {
         return view('components.nav-link');
+        // return view('components.nav-link', ['route' => $this->route, ]);
     }
 }

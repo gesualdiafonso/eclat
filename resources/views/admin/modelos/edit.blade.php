@@ -3,7 +3,7 @@
         <div>
             <h1 class="text-center text-5xl my-10">Editar Modelo: {{ $modelo->name }}</h1>
         </div>
-        <div class="flex flex-row gap-10">
+        <div class="flex flex-col md:flex-row gap-10">
             <div class="w-full">
                 <img src="{{ asset($modelo->image) }}" alt="{{ $modelo->name }}">
             </div>
@@ -12,7 +12,7 @@
                     @csrf
                     @method('PUT')
 
-                    <div class="grid grid-cols-2 gap-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div class="mb-4">
                             <label class="block font-bold">Nombre</label>
                             <input type="text" name="name" value="{{ old('name', $modelo->name) }}" class="w-full border p-2 rounded">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-4 gap-5">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
                         <div class="mb-4">
                             <label class="block font-bold">Altura</label>
                             <input type="text" name="altura" value="{{ old('altura', $modelo->altura) }}" class="w-full border p-2 rounded">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div class="mb-4">
                             <label class="block font-bold">Fecha de nacimiento</label>
                             <input type="date" name="fecha_nacimiento" value="{{ old('fecha_nacimiento', $modelo->fecha_nacimiento) }}" class="w-full border p-2 rounded">

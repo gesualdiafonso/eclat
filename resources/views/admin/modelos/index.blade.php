@@ -42,8 +42,8 @@
                                 <td class="p-3"><span>{{ $model->id }}</span></td>
                                 <td class="p-3 font-semibold"><h2>{{ $model->name }}</h2></td>
                                 <td>{{ $model->ubicacion }}</td>
-                                <td class="p-3">
-                                    <ul class="grid grid-cols-4 gap-4">
+                                <td class="p-3 w-full">
+                                    <ul class="grid grid-cols-1 md:grid-cols-4 gap-4">
                                         <li>Altura: {{ $model->altura}}</li>
                                         <li>Bust: {{ $model->bust}}</li>
                                         <li>Cintura: {{ $model->cintura}}</li>

@@ -1,0 +1,21 @@
+1er parcial Portales
+Alumnos:
+    Afonso Arruda Gesualdi
+    Lisa Bauer
+
+Materia:
+    Portales e Comercio Eletronico
+    2° Cuatrimestre
+
+Turno: Noche
+
+Docente:
+    Santiago Gallino
+
+Database está en MySQL local 3306
+
+Seeders:
+    Modelos -> 12
+    Servicio -> 6
+    Post -> 4
+

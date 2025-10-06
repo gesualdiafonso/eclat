@@ -28,6 +28,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Negro',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1997')->format('Y-m-d'),
                 'ubicacion' => 'Buenos Aires, Capital Federal, Argentina',
+                'instagram' => 'andressa_oficial',
                 'description' => 'Elegância contemporânea com beleza clássica. Pele impecável, traços finos e olhar confiante. Ideal para campanhas de beleza de luxo, maquiagem e editoriais sofisticados.',
                 'estilos' => json_encode([
                     'Estilo' => 'Elegância atemporal, refinada e poderosa.',
@@ -50,6 +51,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Castaño Oscuro',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '29/09/1999')->format('Y-m-d'),
                 'ubicacion' => 'Rawson, Chubut, Argentina',
+                'instagram' => 'diazjuani',
                 'description' => 'Perfil sério, presença magnética e postura refinada. Combina perfeitamente com moda masculina premium, ternos, campanhas de lifestyle urbano e editoriais cosmopolitas.',
                 'estilos' => json_encode([
                     'Estilo' => 'Urbano, sofisticado e versátil.',
@@ -72,6 +74,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Rubio Oscuro',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '24/02/1998')->format('Y-m-d'),
                 'ubicacion' => 'Rosario, Santa Fe, Argentina',
+                'instagram' => 'imolegari',
                 'description' => 'Postura delicada, expressão introspectiva e estilo clean. Representa autenticidade e leveza, excelente para editoriais minimalistas, marcas de moda sustentável e campanhas intimistas.',
                 'estilos' => json_encode([
                     'Estilo' => 'Minimalista, introspectiva e autêntica.',
@@ -94,6 +97,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Castaño',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '20/10/2000')->format('Y-m-d'),
                 'ubicacion' => 'Córdoba, Córdoba, Argentina',
+                'instagram' => 'feerr_luc',
                 'description' => 'Atitude descolada, visual streetwear e presença cool. Ótimo para campanhas jovens, moda alternativa, editoriais de street style e publicidade voltada ao público criativo.',
                 'estilos' => json_encode([
                     'Estilo' => 'Streetwear, rebelde e criativo.',
@@ -116,6 +120,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Pelirroja',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '14/11/1996')->format('Y-m-d'),
                 'ubicacion' => 'Olivos, Buenos Aires, Argentina',
+                'instagram' => 'vic_bithencurt',
                 'description' => 'Olhar doce, sorriso suave e carisma natural. A estética leve e colorida combina com campanhas de moda feminina, verão, lifestyle tropical e beleza natural.',
                 'estilos' => json_encode([
                     'Estilo' => 'Feminino, carismático e natural.',
@@ -138,6 +143,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Negros',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1998')->format('Y-m-d'),
                 'ubicacion' => 'Neuquén, Neuquén, Argentina',
+                'instagram' => 'francis_oficial',
                 'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico.',
                 'estilos' => json_encode([
                     'Estilo' => 'Dramático, sofisticado e conceitual.',
@@ -160,6 +166,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Castaños',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1997')->format('Y-m-d'),
                 'ubicacion' => 'Rosario, Santa Fe, Argentina',
+                'instagram' => 'its_rossi',
                 'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico.',
                 'estilos' => json_encode([
                     'Estilo' => 'Glamouroso, elegante y sofisticado, con un aire de red carpet.',
@@ -182,6 +189,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Castaño Oscuro',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1996')->format('Y-m-d'),
                 'ubicacion' => 'Buenos Aires, Capital Federal, Argentina',
+                'instagram' => 'bianchi_jose',
                 'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico.',
                 'estilos' => json_encode([
                     'Estilo' => 'Casual clásico con un giro moderno.',
@@ -204,6 +212,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Negros',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1995')->format('Y-m-d'),
                 'ubicacion' => 'Bahía Blanca, Buenos Aires, Argentina',
+                'instagram' => 'camysanchez',
                 'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico.',
                 'estilos' => json_encode([
                     'Estilo' => 'Audaz, salvaje y sofisticado.',
@@ -226,6 +235,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Negros',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1996')->format('Y-m-d'),
                 'ubicacion' => 'Buenos Aires, Capital Federal, Argentina',
+                'instagram' => 'im_dylan_of',
                 'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidad de impacto artístico.',
                 'estilos' => json_encode([
                     'Estilo' => 'Minimalista y urbano, con influencia streetwear.',
@@ -248,6 +258,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Rubio',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1994')->format('Y-m-d'),
                 'ubicacion' => 'Mendoza, Mendoza, Argentina',
+                'instagram' => 'sofii_ricci',
                 'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidad de impacto artístico.',
                 'estilos' => json_encode([
                     'Estilo' => 'Haute couture, teatral y etéreo.',
@@ -270,6 +281,7 @@ class ModelosSeeder extends Seeder
                 'cabello' => 'Rubio',
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1997')->format('Y-m-d'),
                 'ubicacion' => 'Quilmes, Buenos Aires, Argentina',
+                'instagram' => 'ema_nandez',
                 'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campañas conceptuales, moda alternativa y publicidad de impacto artístico.',
                 'estilos' => json_encode([
                     'Estilo' => 'Alternativo, artístico y rebelde.',

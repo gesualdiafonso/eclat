@@ -18,4 +18,6 @@ Seeders:
     Modelos -> 12
     Servicio -> 6
     Post -> 4
+    User -> 1 usuario test (admin@eclat.com)
 
+Link repositorio GitHub: https://github.com/gesualdiafonso/eclat.git

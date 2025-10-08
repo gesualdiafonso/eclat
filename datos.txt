@@ -1,13 +1,16 @@
 1er parcial Portales
+Carrera: Diseño y Programación Web
 Alumnos:
     Afonso Arruda Gesualdi
     Lisa Bauer
 
 Materia:
     Portales e Comercio Eletronico
-    2° Cuatrimestre
+    4° Cuatrimestre
+    2025
 
 Turno: Noche
+Comisión: DW4AV
 
 Docente:
     Santiago Gallino

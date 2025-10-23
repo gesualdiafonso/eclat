@@ -79,7 +79,7 @@
                                 <span class="icon ">
                                     <ion-icon name="log-out-outline"></ion-icon>
                                 </span>
-                                <button type="submit" class="title text-white hover:text-black text-xl">Sing Out</button>
+                                <button type="submit" class="title text-white hover:text-black text-xl">Sign Out</button>
                         </form>
                     </li>
                     <span class="title text-3xl text-white text-center mx-auto my-10">{{auth()->user()->name}}</span>
@@ -89,7 +89,7 @@
                             <span class="icon">
                                 <ion-icon name="aperture-outline"></ion-icon>
                             </span>
-                            <span class="title">Ingressar</span>
+                            <span class="title">Sign In</span>
                         </a>
                     </li>
                 @endif

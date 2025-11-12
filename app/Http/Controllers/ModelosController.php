@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Modelos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str as SupportStr;
 
 class ModelosController extends Controller
 {
@@ -58,18 +59,18 @@ class ModelosController extends Controller
 
         $data = $request->except(['_token']);
 
-        if($request->hasFile('image')) {
+        if($request->hasFile('image')){
             $image = $request->file('image');
-            $imageName = time(). '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('assets/images/modelos_eclat');
 
-            if(!file_exists($destinationPath)){
-                mkdir($destinationPath, 0777, true);
-            }
+            // Genero el nombre a base del nombre
+            $nameSlug = SupportStr::slug($request->input('name'));
+            $imageName = $nameSlug . '-' . time() . '.' . $image->getClientOriginalExtension();
 
-            $image->move($destinationPath, $imageName);
+            // Armazeno con storeAs()
+            $path = $image->storeAs('modelos_eclat', $imageName, 'public');
 
-            $data['image'] = 'assets/images/modelos_eclat/' . $imageName;
+            // camino a la base de datos
+            $data['image'] = 'storage/' . $path;
         }
 
         if (!empty($data['estilos'])) {
@@ -130,17 +131,18 @@ class ModelosController extends Controller
         $data = $request->except(['_token']);
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('assets/images/modelos_eclat');
 
-            if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0777, true);
+            // Borra la imagem anterior, si existir
+            if ($modelo->image && file_exists(public_path($modelo->image))) {
+                unlink(public_path($modelo->image));
             }
 
-            $image->move($destinationPath, $imageName);
+            $image = $request->file('image');
+            $nameSlug = SupportStr::slug($request->input('name'));
+            $imageName = $nameSlug . '-' . time() . '.' . $image->getClientOriginalExtension();
 
-            $data['image'] = 'assets/images/modelos_eclat/' . $imageName;
+            $path = $image->storeAs('modelos_eclat', $imageName, 'public');
+            $data['image'] = 'storage/' . $path;
         }
 
         // transformar estilos em JSON
@@ -164,6 +166,11 @@ class ModelosController extends Controller
     public function destroy(int $id)
     {
         $modelo = Modelos::findOrFail($id);
+
+        // Borra la imagem asociada antes de borrar del registro
+        if ($modelo->image && file_exists(public_path($modelo->image))) {
+            unlink(public_path($modelo->image));
+        }
 
         $modelo->delete();
 

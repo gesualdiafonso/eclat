@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB; // Add this line
 use Illuminate\Http\Request; // Import the Request class
 use App\Models\Post; // Import the Post model
 use App\Models\Servicio;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -50,21 +51,16 @@ class PostController extends Controller
 
         // guarda en la dato todo los valores del formulario menos el token llamado de Blacklisting
         $data = $request->except(['_token']);
-        // Si hay una imagen, la guardamos en el almacenamiento y obtenemos la ruta
-        // Upload manual para public/assets/images/servicios/
-        // Upload manual para public/assets/images/servicios/
+
         if ($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('assets/images/posts');
+            $image = $request->file('image');
 
-            if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0777, true);
-            }
+            $nameSlug = Str::slug($request->input('name'));
+            $imageName = $nameSlug . '-' . time() . '.' . $image->getClientOriginalExtension();
 
-            $image->move($destinationPath, $imageName);
+            $path = $image->storeAs('modelos_eclat', $imageName, 'public');
 
-            $data['image'] = 'assets/images/posts/' . $imageName;
+            $data['image'] = 'storage/' . $path;
         }
 
         Post::create($data);
@@ -97,17 +93,16 @@ class PostController extends Controller
         $data = $request->except(['_token']);
 
         if ($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('assets/images/posts');
-
-            if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0777, true);
+            if($post->image && file_exists((public_path($post->image)))){
+                unlink(public_path($post->image));
             }
 
-            $image->move($destinationPath, $imageName);
+            $image = $request->file('image');
+            $nameSlug = Str::slug($request->input('name'));
+            $imageName = $nameSlug . '-' . time() . '.' . $image->getClientOriginalExtension();
 
-            $data['image'] = 'assets/images/posts/' . $imageName;
+            $path = $image->storeAs('modelos_eclat', $imageName, 'public');
+            $data['image'] = 'storage/' . $path;
         }
 
         $post->update($data);
@@ -125,6 +120,11 @@ class PostController extends Controller
     public function destroy(int $id)
     {
         $post = Post::findOrFail($id);
+
+        if($post->image && file_exists(public_path($post->image))){
+            unlink(public_path($post->image));
+        }
+
         $post->delete();
 
         return redirect()->route('admin.post.index')->with('success', 'Post eliminado con éxito.');

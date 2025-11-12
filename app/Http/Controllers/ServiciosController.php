@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Servicio;
 use Illuminate\Http\Request; // Import the Request class
+use Illuminate\Support\Str;
 
 class ServiciosController extends Controller
 {
@@ -55,20 +56,16 @@ class ServiciosController extends Controller
 
         // guarda en la dato todo los valores del formulario menos el token llamado de Blacklisting
         $data = $request->except(['_token']);
-        // Si hay una imagen, la guardamos en el almacenamiento y obtenemos la ruta
-        // Upload manual para public/assets/images/servicios/
+
         if ($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('assets/images/servicios');
+            $image = $request->file('image');
 
-            if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0777, true);
-            }
+            $nameSlug = Str::slug($request->input('name'));
+            $imageName = $nameSlug . '-' . time() . '.' . $image->getClientOriginalExtension();
 
-            $image->move($destinationPath, $imageName);
+            $path = $image->storeAs('modelos_eclat', $imageName, 'public');
 
-            $data['image'] = 'assets/images/servicios/' . $imageName;
+            $data['image'] = 'storage/' . $path;
         }
 
         // Converter categoria para JSON se houver
@@ -107,17 +104,16 @@ class ServiciosController extends Controller
         $data = $request->except(['_token']);
 
         if ($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $imageName  = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('assets/images/servicios');
-
-            if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0777, true);
+            if($servicios->image && file_exists((public_path($servicios->image)))){
+                unlink(public_path($servicios->image));
             }
 
-            $image->move($destinationPath, $imageName);
+            $image = $request->file('image');
+            $nameSlug = Str::slug($request->input('name'));
+            $imageName = $nameSlug . '-' . time() . '.' . $image->getClientOriginalExtension();
 
-            $data['image'] = 'assets/images/servicios/' . $imageName;
+            $path = $image->storeAs('modelos_eclat', $imageName, 'public');
+            $data['image'] = 'storage/' . $path;
         }
 
         $servicios->update($data);
@@ -133,6 +129,11 @@ class ServiciosController extends Controller
 
     public function destroy(int $id){
         $servicio = Servicio::findOrFail($id);
+
+        if($servicio->image && file_exists(public_path($servicio->image))){
+            unlink(public_path($servicio->image));
+        }
+
         $servicio->delete();
         return redirect()->route('admin.servicios.index')->with('success', 'Servicio ha sido eliminado con exito');
     }

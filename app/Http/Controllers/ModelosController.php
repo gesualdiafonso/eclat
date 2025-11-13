@@ -54,7 +54,7 @@ class ModelosController extends Controller
             'ubicacion' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:100',
             'description' => 'required|string',
-            'estilos' => 'required|string',
+            'campana' => 'required|string',
         ]);
 
         $data = $request->except(['_token']);
@@ -125,7 +125,7 @@ class ModelosController extends Controller
             'ubicacion' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:255',
             'description' => 'required|string',
-            'estilos' => 'required|string',
+            'campanas' => 'required|string',
         ]);
 
         $data = $request->except(['_token']);

@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('ubicacion')->nullable();
             $table->string('instagram')->nullable();
             $table->longText('description');
-            $table->json('estilos');
+            $table->string('campana');
             $table->timestamps();
         });
     }

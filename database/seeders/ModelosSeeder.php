@@ -29,14 +29,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1997')->format('Y-m-d'),
                 'ubicacion' => 'Buenos Aires, Capital Federal, Argentina',
                 'instagram' => 'andressa_oficial',
-                'description' => 'Elegância contemporânea com beleza clássica. Pele impecável, traços finos e olhar confiante. Ideal para campanhas de beleza de luxo, maquiagem e editoriais sofisticados.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Elegância atemporal, refinada e poderosa.',
-                    'Trazos marcantes' => 'Pele luminosa impecável, olhos expressivos, lábios definidos, rosto harmônico.',
-                    'Personalidad que transmite' => 'Confiança, sofisticação e magnetismo.',
-                    'Campañas de destaque' => 'Beleza de luxo, skincare premium, maquiagem de alta moda, joalheria e editoriais de moda conceitual.',
-                    'Fuerza visual' => 'Capacidade de sustentar closes intensos com impacto imediato.',
-                    ])
+                'description' => 'Elegância contemporânea com beleza clássica. Pele impecável, traços finos e olhar confiante. Ideal para campanhas de beleza de luxo, maquiagem e editoriais sofisticados. Pele luminosa impecável, olhos expressivos, lábios definidos, rosto harmônico. Confiança, sofisticação e magnetismo. Capacidade de sustentar closes intensos com impacto imediato.',
+                'campana' => 'Beleza de luxo, skincare premium, maquiagem de alta moda, joalheria e editoriais de moda conceitual.',
             ],
             [
                 'name' => 'Juan Díaz',
@@ -52,14 +46,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '29/09/1999')->format('Y-m-d'),
                 'ubicacion' => 'Rawson, Chubut, Argentina',
                 'instagram' => 'diazjuani',
-                'description' => 'Perfil sério, presença magnética e postura refinada. Combina perfeitamente com moda masculina premium, ternos, campanhas de lifestyle urbano e editoriais cosmopolitas.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Urbano, sofisticado e versátil.',
-                    'Trazos marcantes' => 'Linha do maxilar definida, barba sutil, porte atlético, olhar contemplativo.',
-                    'Personalidad que transmite' => 'Determinação, charme discreto e inteligência.',
-                    'Campañas de destaque' => 'Moda masculina premium, ternos, alfaiataria, campanhas de relógios e lifestyle urbano sofisticado.',
-                    'Fuerza visual' => 'Perfeito para representar o homem cosmopolita, focado e contemporâneo.',
-                    ])
+                'description' => 'Perfil sério, presença magnética e postura refinada. Combina perfeitamente com moda masculina premium, ternos, campanhas de lifestyle urbano e editoriais cosmopolitas. Linha do maxilar definida, barba sutil, porte atlético, olhar contemplativo. Determinação, charme discreto e inteligência. Perfeito para representar o homem cosmopolita, focado e contemporâneo.',
+                'campana' => 'Moda masculina premium, ternos, alfaiataria, campanhas de relógios e lifestyle urbano sofisticado.',
             ],
             [
                 'name' => 'Paula Olegari',
@@ -75,14 +63,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '24/02/1998')->format('Y-m-d'),
                 'ubicacion' => 'Rosario, Santa Fe, Argentina',
                 'instagram' => 'imolegari',
-                'description' => 'Postura delicada, expressão introspectiva e estilo clean. Representa autenticidade e leveza, excelente para editoriais minimalistas, marcas de moda sustentável e campanhas intimistas.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Minimalista, introspectiva e autêntica.',
-                    'Trazos marcantes' => 'Cabelos cacheados soltos, pele clara natural, silhueta elegante.',
-                    'Personalidad que transmite' => 'Delicadeza, autenticidade e introspecção.',
-                    'Campañas de destaque' => 'Moda sustentável, editoriais de lifestyle clean, marcas conceituais, beleza natural.',
-                    'Fuerza visual' => 'Capacidade de transmitir pureza e autenticidade em ambientes simples ou editoriais intimistas.',
-                ]),
+                'description' => 'Postura delicada, expressão introspectiva e estilo clean. Representa autenticidade e leveza, excelente para editoriais minimalistas, marcas de moda sustentável e campanhas intimistas. Cabelos cacheados soltos, pele clara natural, silhueta elegante. Delicadeza, autenticidade e introspecção. Capacidade de transmitir pureza e autenticidade em ambientes simples ou editoriais intimistas.',
+                'campana' =>  'Moda sustentável, editoriais de lifestyle clean, marcas conceituais, beleza natural.',
             ],
             [
                 'name' => 'Lucas Fernandez',
@@ -98,14 +80,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '20/10/2000')->format('Y-m-d'),
                 'ubicacion' => 'Córdoba, Córdoba, Argentina',
                 'instagram' => 'feerr_luc',
-                'description' => 'Atitude descolada, visual streetwear e presença cool. Ótimo para campanhas jovens, moda alternativa, editoriais de street style e publicidade voltada ao público criativo.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Streetwear, rebelde e criativo.',
-                    'Trazos marcantes' => 'Postura despojada, cabelo volumoso, óculos futuristas, atitude cool.',
-                    'Personalidad que transmite' => 'Liberdade, ousadia e vanguarda.',
-                    'Campañas de destaque' => 'Moda urbana, editoriais de tendências jovens, street style, marcas alternativas e campanhas digitais.',
-                    'Fuerza visual' => 'Representa o jovem contemporâneo, irreverente e conectado com a cultura pop.',
-                ]),
+                'description' => 'Atitude descolada, visual streetwear e presença cool. Ótimo para campanhas jovens, moda alternativa, editoriais de street style e publicidade voltada ao público criativo. Postura despojada, cabelo volumoso, óculos futuristas, atitude cool. Liberdade, ousadia e vanguarda. Representa o jovem contemporâneo, irreverente e conectado com a cultura pop.',
+                'campana' => 'Moda urbana, editoriais de tendências jovens, street style, marcas alternativas e campanhas digitais.',
             ],
             [
                 'name' => 'Victoria Bithencurt',
@@ -121,14 +97,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '14/11/1996')->format('Y-m-d'),
                 'ubicacion' => 'Olivos, Buenos Aires, Argentina',
                 'instagram' => 'vic_bithencurt',
-                'description' => 'Olhar doce, sorriso suave e carisma natural. A estética leve e colorida combina com campanhas de moda feminina, verão, lifestyle tropical e beleza natural.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Feminino, carismático e natural.',
-                    'Trazos marcantes' => 'Cabelos longos ruivos, olhos claros, sorriso sutil, pele radiante.',
-                    'Personalidad que transmite' => 'Alegria, calor humano e proximidade.',
-                    'Campañas de destaque' => 'Moda feminina colorida, lifestyle tropical, campanhas de verão, cosméticos e moda casual.',
-                    'Fuerza visual' => 'Brilho natural que conecta facilmente com o público, passando frescor e acessibilidade.',
-                ]),
+                'description' => 'Olhar doce, sorriso suave e carisma natural. A estética leve e colorida combina com campanhas de moda feminina, verão, lifestyle tropical e beleza natural. Cabelos longos ruivos, olhos claros, sorriso sutil, pele radiante. Alegria, calor humano e proximidade. Brilho natural que conecta facilmente com o público, passando frescor e acessibilidade.',
+                'campana' => 'Moda feminina colorida, lifestyle tropical, campanhas de verão, cosméticos e moda casual.',
             ],
             [
                 'name' => 'Francisco Gómez',
@@ -144,14 +114,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1998')->format('Y-m-d'),
                 'ubicacion' => 'Neuquén, Neuquén, Argentina',
                 'instagram' => 'francis_oficial',
-                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Dramático, sofisticado e conceitual.',
-                    'Trazos marcantes' => 'Cabelos ondulados, olhar penetrante, presença forte em preto e branco.',
-                    'Personalidad que transmite' => 'Intensidade, mistério e profundidade artística.',
-                    'Campañas de destaque' => 'Editorial conceitual, moda alternativa, campanhas de alta costura, publicidade artística.',
-                    'Fuerza visual' => 'Ideal para marcas que buscam expressividade dramática e imagens memoráveis.',
-                ]),
+                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico. Cabelos ondulados, olhar penetrante, presença forte em preto e branco. Intensidade, mistério e profundidade artística. Ideal para marcas que buscam expressividade dramática e imagens memoráveis.',
+                'campana' => 'Editorial conceitual, moda alternativa, campanhas de alta costura, publicidade artística.',
             ],
             [
                 'name' => 'Valentina Rossì',
@@ -167,14 +131,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1997')->format('Y-m-d'),
                 'ubicacion' => 'Rosario, Santa Fe, Argentina',
                 'instagram' => 'its_rossi',
-                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Glamouroso, elegante y sofisticado, con un aire de red carpet.',
-                    'Trazos marcantes' => 'Líneas fluidas, corte asimétrico con abertura lateral que resalta movimiento y feminidad.',
-                    'Personalidad que transmite' => 'Confianza, sensualidad discreta y poder femenino.',
-                    'Campañas de destaque' => 'Moda de lujo, editoriales de alta costura, marcas premium de gala.',
-                    'Fuerza visual' => 'Impacta por el brillo y dramatismo del vestido en contraste con la pose dinámica.',
-                ]),
+                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico. Líneas fluidas, corte asimétrico con abertura lateral que resalta movimiento y feminidad. Confianza, sensualidad discreta y poder femenino. Impacta por el brillo y dramatismo del vestido en contraste con la pose dinámica.',
+                'campana' => 'Moda de lujo, editoriales de alta costura, marcas premium de gala.',
             ],
             [
                 'name' => 'Jose Bianchi',
@@ -190,14 +148,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1996')->format('Y-m-d'),
                 'ubicacion' => 'Buenos Aires, Capital Federal, Argentina',
                 'instagram' => 'bianchi_jose',
-                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Casual clásico con un giro moderno.',
-                    'Trazos marcantes' => 'Estilo atemporal, sonrisa fresca y natural.',
-                    'Personalidad que transmite' => 'Cercanía, autenticidad y optimismo juvenil.',
-                    'Campañas de destaque' => 'Moda urbana, lifestyle, marcas de ropa masculina y fragancias.',
-                    'Fuerza visual' => 'Su expresión abierta y espontánea genera conexión inmediata.',
-                ]),
+                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico. Estilo atemporal, sonrisa fresca y natural. Cercanía, autenticidad y optimismo juvenil. Su expresión abierta y espontánea genera conexión inmediata.',
+                'campana' => 'Moda urbana, lifestyle, marcas de ropa masculina y fragancias.',
             ],
             [
                 'name' => 'Camila Sánchez',
@@ -213,14 +165,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1995')->format('Y-m-d'),
                 'ubicacion' => 'Bahía Blanca, Buenos Aires, Argentina',
                 'instagram' => 'camysanchez',
-                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Audaz, salvaje y sofisticado.',
-                    'Trazos marcantes' => 'Mirada cálida y fuerte, cuerpo marcante y simple, postura elegante.',
-                    'Personalidad que transmite' => 'Valentía, seguridad y magnetismo.',
-                    'Campañas de destaque' => 'Alta moda, editoriales de lujo, marcas con actitud irreverente.',
-                    'Fuerza visual' => 'La intensidad del animal print enmarcado por el fondo natural potencia la fuerza de su mirada.',
-                ]),
+                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidade de impacto artístico. Mirada cálida y fuerte, cuerpo marcante y simple, postura elegante. Valentía, seguridad y magnetismo. La intensidad del animal print enmarcado por el fondo natural potencia la fuerza de su mirada.',
+                'campana' => 'Alta moda, editoriales de lujo, marcas con actitud irreverente.',
             ],
             [
                 'name' => 'Dylan Rodríguez',
@@ -236,14 +182,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1996')->format('Y-m-d'),
                 'ubicacion' => 'Buenos Aires, Capital Federal, Argentina',
                 'instagram' => 'im_dylan_of',
-                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidad de impacto artístico.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Minimalista y urbano, con influencia streetwear.',
-                    'Trazos marcantes' => 'Silueta amplia, monocromía, actitud relajada.',
-                    'Personalidad que transmite' => 'Frescura, modernidad y un aire introspectivo.',
-                    'Campañas de destaque' => 'Moda urbana, colecciones cápsula de streetwear, marcas sostenibles.',
-                    'Fuerza visual' => 'La pureza del look monocromático transmite calma y sofisticación.',
-                ]),
+                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidad de impacto artístico. Frescura, modernidad y un aire introspectivo. Silueta amplia, monocromía, actitud relajada. La pureza del look monocromático transmite calma y sofisticación.',
+                'campana' => 'Moda urbana, colecciones cápsula de streetwear, marcas sostenibles.',
             ],
             [
                 'name' => 'Sofia Ricci',
@@ -259,14 +199,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1994')->format('Y-m-d'),
                 'ubicacion' => 'Mendoza, Mendoza, Argentina',
                 'instagram' => 'sofii_ricci',
-                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidad de impacto artístico.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Haute couture, teatral y etéreo.',
-                    'Trazos marcantes' => 'Cuerpo en formato escultural intenso, miradas marcantes, actitud fuerte y determinada.',
-                    'Personalidad que transmite' => 'Misticismo, audacia artística y magnetismo escénico.',
-                    'Campañas de destaque' => 'Pasarelas de alta moda, editoriales conceptuales, marcas exclusivas.',
-                    'Fuerza visual' => 'El dramatismo del diseño junto al gesto coreográfico la convierten en un ícono visual.',
-                ]),
+                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campanhas conceituais, moda alternativa e publicidad de impacto artístico. Cuerpo en formato escultural intenso, miradas marcantes, actitud fuerte y determinada. Misticismo, audacia artística y magnetismo escénico. El dramatismo del diseño junto al gesto coreográfico la convierten en un ícono visual.',
+                'campana' => 'Pasarelas de alta moda, editoriales conceptuales, marcas exclusivas.',
             ],
             [
                 'name' => 'Emanuel Hernández',
@@ -282,14 +216,8 @@ class ModelosSeeder extends Seeder
                 'fecha_nacimiento' => \Carbon\Carbon::createFromFormat('d/m/Y', '10/04/1997')->format('Y-m-d'),
                 'ubicacion' => 'Quilmes, Buenos Aires, Argentina',
                 'instagram' => 'ema_nandez',
-                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campañas conceptuales, moda alternativa y publicidad de impacto artístico.',
-                'estilos' => json_encode([
-                    'Estilo' => 'Alternativo, artístico y rebelde.',
-                    'Trazos marcantes' => 'Mirada intensa, tatuaje visible, estética en blanco y negro que realza fuerza emocional.',
-                    'Personalidad que transmite' => 'Profundidad, misterio y un aire provocador.',
-                    'Campañas de destaque' => 'Moda alternativa, campañas de joyería, marcas de identidad fuerte.',
-                    'Fuerza visual' => 'Su expresión desafiante y el contraste en blanco y negro generan una narrativa poderosa.',
-                ]),
+                'description' => 'Traços fortes, olhar profundo e presença dramática. Excelente para editoriais de moda em preto e branco, campañas conceptuales, moda alternativa y publicidad de impacto artístico. Mirada intensa, tatuaje visible, estética en blanco y negro que realza fuerza emocional. Profundidad, misterio y un aire provocador. Su expresión desafiante y el contraste en blanco y negro generan una narrativa poderosa.',
+                'campana' => 'Moda alternativa, campañas de joyería, marcas de identidad fuerte.',
             ]
         ]);
     }

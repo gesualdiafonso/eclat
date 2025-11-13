@@ -10,6 +10,28 @@
         <div class="cs-menu-copy"><span>Menu</span></div>
     </div>
 
+    @auth
+    <div class="absolute top-12 right-40 flex items-center gap-4 z-[9999]">
+
+        <!-- Nome do usuário -->
+        <span class="text-gray-900 text-sm tracking-wide uppercase">
+            {{ Auth::user()->name }}
+        </span>
+
+        <!-- Logout -->
+        <form action="{{ route('auth.logout') }}" method="POST">
+            @csrf
+            <button
+                type="submit"
+                class="px-3 py-1 text-xs uppercase tracking-wider bg-white/10 backdrop-blur-md text-gray-800 border border-white/20 hover:text-white hover:bg-black hover:border-white/30 hover:rounded-full transition-all duration-300"
+            >
+                Logout
+            </button>
+        </form>
+
+    </div>
+    @endauth
+
     <div class="cs-menu">
         <div class="cs-col cs-col-1">
             <div class="cs-menu-logo"></div>
@@ -56,8 +78,8 @@
             </div>
         </div>
     </div>
-    <div class="cs-header mx-auto">
+    {{-- <div class="cs-header mx-auto">
         <h1 class="text-gray-50"><span>Éclat</span></h1>
-    </div>
+    </div> --}}
 
 </header>

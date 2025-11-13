@@ -83,6 +83,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 // ****************************************************
 
 Route::prefix('client')->name('client.')->middleware(['auth', 'role:client'])->group(function () {
-    Route::get('/', [\App\Http\Controllers\ClientController::class, 'profile'])->name('profile');
+    Route::get('/', [\App\Http\Controllers\ClientController::class, 'profile'])
+        ->name('profile');
 
 });

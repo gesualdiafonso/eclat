@@ -1,13 +1,13 @@
 <x-layouts.admin>
-    <section>
+    <section class="pb-20">
         <div>
             <h1 class="text-center text-5xl my-10">Editar Modelo: {{ $modelo->name }}</h1>
         </div>
-        <div class="flex flex-col md:flex-row gap-10">
-            <div class="w-full">
-                <img src="{{ asset($modelo->image) }}" alt="{{ $modelo->name }}">
+        <div class="flex relative flex-col md:flex-row gap-10">
+            <div class="w-1/2 h-64 relative">
+                <img src="{{ asset($modelo->image) }}" alt="{{ $modelo->name }}" class="w-2/5 h-auto object-cover fixed">
             </div>
-            <div class="w-full p-2">
+            <div class="w-1/2 p-2">
                 <form method="POST" action="{{ route('admin.modelos.update', $modelo->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -89,15 +89,20 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="estilos" class="block font-medium text-gray-700">Estilos</label>
-                        <select name="estilos[]" id="estilos" multiple class="w-full border-gray-300 rounded">
+                        <label class="block text-lg font-semibold mb-2">Estilos</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
                             @foreach($estilos as $estilo)
-                                <option value="{{ $estilo->estilos_id }}"
-                                    {{ $modelo->estilos->contains('estilos_id', $estilo->estilos_id) ? 'selected' : '' }}>
-                                    {{ $estilo->name }}
-                                </option>
+                                <label class="flex items-center space-x-2">
+                                    <input
+                                        type="checkbox"
+                                        name="estilos[]"
+                                        value="{{ $estilo->estilos_id }}"
+                                        @checked(in_array($estilo->estilos_id, $estilosSelecionados ?? []))
+                                    >
+                                    <span>{{ $estilo->name }}</span>
+                                </label>
                             @endforeach
-                        </select>
+                        </div>
                     </div>
 
 

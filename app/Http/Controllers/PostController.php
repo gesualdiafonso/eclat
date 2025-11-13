@@ -43,10 +43,10 @@ class PostController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:posts,slug',
+            'slug' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'author' => 'required|string|max:255',
-            'categoria_id' => 'required|exists:categoria,id',
+            'categoria_fk' => 'required|exists:categoria,categoria_id',
             'resume' => 'required|string',
             'content' => 'required|string',
         ]);
@@ -84,10 +84,10 @@ class PostController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:posts,slug,' . $post->id,
+            'slug' => 'required|string|max:255|',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'author' => 'required|string|max:255',
-            'categoria_id' => 'required|exists:categoria,id',
+            'categoria_fk' => 'required|exists:categoria,categoria_id',
             'resume' => 'required|string',
             'content' => 'required|string',
         ]);

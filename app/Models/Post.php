@@ -11,10 +11,10 @@ class Post extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'name',
+        'categoria_fk',
         'slug',
         'image',
         'author',
-        'category',
         'resume',
         'content',
     ];

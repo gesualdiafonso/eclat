@@ -45,10 +45,10 @@
             {{-- Categoria --}}
             <div>
                 <label>Categoria</label>
-                <select name="categoria_id" required>
+                <select name="categoria_fk" required>
                     <option value="">Selecione uma categoria</option>
                     @foreach($categoria as $categ)
-                        <option value="{{ $categ->id }}">{{ $categ->name }}</option>
+                        <option value="{{ $categ->categoria_id }}">{{ $categ->name }}</option>
                     @endforeach
                 </select>
 

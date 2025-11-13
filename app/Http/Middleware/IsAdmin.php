@@ -16,8 +16,16 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!Auth::check() || !Auth::user()->is_admin){
-            return redirect()->route('auth.login.show')->with('warning', 'Acceso no autorizado!');
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+
+            if ($user->role === 'client') {
+                return redirect()->route('client.profile');
+            }
         }
         return $next($request);
     }

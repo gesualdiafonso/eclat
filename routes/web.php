@@ -34,125 +34,55 @@ Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])-
 // ******************* Para Admin *********************
 // ****************************************************
 
-Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'dashboard'])
-    ->name('admin.dashboard')
-    ->middleware('auth');
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
 
-// Admin - Servicios
-/**
- * Uso el prefijo /admin/servicios para todas las rutas relacionadas con la gestión de servicios en el panel de administración.
- */
-Route::prefix('admin/servicios')->name('admin.servicios.')->group(function (){
-    // Listar todos los servicios
-    Route::get('/', [\App\Http\Controllers\ServiciosController::class, 'servicios'])->name('index')->middleware('auth');;
+    // Rota central del admin
+    Route::get('/', [\App\Http\Controllers\AdminController::class, 'dashboard'])
+        ->name('dashboard');
 
-    // Crear nuevo servicio -> ruta para mostrar el formulario
-    Route::get('/create', [\App\Http\Controllers\ServiciosController::class, 'create'])
-            ->name('create')
-            ->middleware('auth');
+    Route::get('/search', [\App\Http\Controllers\AdminController::class, 'search'])
+        ->name('search');;
 
-    // Ruta para procesar el formulario de creación y almacenar el nuevo servicio
-    Route::post('/', [\App\Http\Controllers\ServiciosController::class, 'store'])
-            ->name('store')
-            ->middleware('auth');
+    // Rota del servicios
+    Route::prefix('servicios')->name('servicios.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\ServiciosController::class, 'servicios'])->name('index');
+        Route::get('/create', [\App\Http\Controllers\ServiciosController::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\ServiciosController::class, 'store'])->name('store');
+        Route::get('/{id}', [\App\Http\Controllers\ServiciosController::class, 'details'])->name('details');
+        Route::put('/{id}', [\App\Http\Controllers\ServiciosController::class, 'update'])->name('update');
+        Route::get('/{id}/delete', [\App\Http\Controllers\ServiciosController::class, 'delete'])->name('delete');
+        Route::delete('/{id}', [\App\Http\Controllers\ServiciosController::class, 'destroy'])->name('destroy');
+    });
 
-    // Detalles de un servicio específico
-    Route::get('/{id}', [\App\Http\Controllers\ServiciosController::class, 'details'])
-            ->name('details')
-            ->middleware('auth');
+    // Rota del post
+    Route::prefix('post')->name('post.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\PostController::class, 'posts'])->name('index');
+        Route::get('/create', [\App\Http\Controllers\PostController::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\PostController::class, 'store'])->name('store');
+        Route::get('/{id}', [\App\Http\Controllers\PostController::class, 'details'])->name('details');
+        Route::put('/{id}', [\App\Http\Controllers\PostController::class, 'update'])->name('update');
+        Route::get('/{id}/delete', [\App\Http\Controllers\PostController::class, 'delete'])->name('delete');
+        Route::delete('/{id}', [\App\Http\Controllers\PostController::class, 'destroy'])->name('destroy');
+    });
 
-    // Ruta para editar un servicio específico
-    Route::put('/{id}', [\App\Http\Controllers\ServiciosController::class, 'update'])
-            ->name('update')
-            ->middleware('auth');
-
-    // Ruta para eliminar un servicio específico
-    // Ruta para eliminar un post específico
-    Route::get('/{id}/delete', [\App\Http\Controllers\ServiciosController::class, 'delete'])
-            ->name('delete')
-            ->middleware('auth');
-
-    Route::delete('/{id}', [\App\Http\Controllers\ServiciosController::class, 'destroy'])
-            ->name('destroy')
-            ->middleware('auth');
+        // Rota de los modelos
+    Route::prefix('modelos')->name('modelos.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\ModelosController::class, 'modelos'])->name('index');
+        Route::get('/create', [\App\Http\Controllers\ModelosController::class, 'create'])->name('create');
+        Route::post('/', [\App\Http\Controllers\ModelosController::class, 'store'])->name('store');
+        Route::get('/{id}', [\App\Http\Controllers\ModelosController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [\App\Http\Controllers\ModelosController::class, 'update'])->name('update');
+        Route::get('/{id}/delete', [\App\Http\Controllers\ModelosController::class, 'delete'])->name('delete');
+        Route::delete('/{id}', [\App\Http\Controllers\ModelosController::class, 'destroy'])->name('destroy');
+    });
 });
 
-// Admin - Post
-/**
- * Uso el prefijo /admin/post para todas las rutas relacionadas con la gestión de posts en el panel de administración.
- */
-Route::prefix('admin/post')->name('admin.post.')->group(function (){
 
-    // Listar todos los posts
-    Route::get('/', [\App\Http\Controllers\PostController::class, 'posts'])
-            ->name('index')
-            ->middleware('auth');
+// ****************************************************
+// ****************** Para Client *********************
+// ****************************************************
 
-    // Crear nuevo post -> ruta para mostrar el formulario
-    Route::get('/create', [\App\Http\Controllers\PostController::class, 'create'])
-            ->name('create')
-            ->middleware('auth');
+Route::prefix('client')->name('client.')->middleware(['auth', 'role:client'])->group(function () {
+    Route::get('/', [\App\Http\Controllers\ClientController::class, 'profile'])->name('profile');
 
-    // Ruta para procesar el formulario de creación y almacenar el nuevo post
-    Route::post('/', [\App\Http\Controllers\PostController::class, 'store'])->name('store')->middleware('auth');
-
-    // Detalles de un post específico
-    Route::get('/{id}', [\App\Http\Controllers\PostController::class, 'details'])
-            ->name('details')
-            ->middleware('auth');
-
-    // Ruta para editar un post específico
-    Route::put('/{id}', [\App\Http\Controllers\PostController::class, 'update'])
-            ->name('update')
-            ->middleware('auth');
-
-    // Ruta para eliminar un post específico
-    Route::get('/{id}/delete', [\App\Http\Controllers\PostController::class, 'delete'])
-            ->name('delete')
-            ->middleware('auth');
-
-    Route::delete('/{id}', [\App\Http\Controllers\PostController::class, 'destroy'])
-            ->name('destroy')
-            ->middleware('auth'); // deleta
-});
-
-// Admin - modelos
-/**
- * Uso el prefijo /admin/post para todas las rutas relacionadas con la gestión de posts en el panel de administración.
- */
-Route::prefix('admin/modelos')->name('admin.modelos.')->group(function (){
-
-    // Listar todos los posts
-    Route::get('/', [\App\Http\Controllers\ModelosController::class, 'modelos'])
-            ->name('index')
-            ->middleware('auth');
-
-    // Crear nuevo post -> ruta para mostrar el formulario
-    Route::get('/create', [\App\Http\Controllers\ModelosController::class, 'create'])
-            ->name('create')
-            ->middleware('auth');
-
-    // Ruta para procesar el formulario de creación y almacenar el nuevo post
-    Route::post('/', [\App\Http\Controllers\ModelosController::class, 'store'])
-            ->name('store')
-            ->middleware('auth');
-
-    // Detalles de un post específico
-    Route::get('/{id}', [\App\Http\Controllers\ModelosController::class, 'edit'])
-            ->name('edit')
-            ->middleware('auth');
-
-    // Ruta para editar un post específico
-    Route::put('/{id}', [\App\Http\Controllers\ModelosController::class, 'update'])
-            ->name('update')
-            ->middleware('auth');
-
-    // Ruta para eliminar un post específico
-    Route::get('/{id}/delete', [\App\Http\Controllers\ModelosController::class, 'delete'])
-            ->name('delete')
-            ->middleware('auth');
-
-    Route::delete('/{id}', [\App\Http\Controllers\ModelosController::class, 'destroy'])
-            ->name('destroy') // deleta
-            ->middleware('auth');
 });

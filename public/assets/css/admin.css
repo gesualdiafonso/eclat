@@ -235,7 +235,7 @@ body {
   position: relative;
   font-weight: 500;
   font-size: 2.5rem;
-  color: var(--blue);
+  color: #1fb5de;
 }
 
 .cardBox .card .cardName {
@@ -254,6 +254,7 @@ body {
 }
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
+.cardBox .card:hover .cardName a,
 .cardBox .card:hover .iconBx {
   color: var(--white);
 }

@@ -17,12 +17,19 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                {{-- <div class="search">
-                    <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
-                </div> --}}
+                <div class="search">
+                    <form action="{{ route('admin.search') }}" method="GET">
+                        <label>
+                            <input
+                                type="text"
+                                name="q"
+                                placeholder="Pesquisas acá"
+                                class="border px-3 py-2 rounded w-full"
+                            >
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
+                    </form>
+                </div>
             </div>
             {{ $slot }}
         </div>

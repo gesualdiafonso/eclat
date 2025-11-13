@@ -42,10 +42,19 @@
 
             {{-- Categoria --}}
             <div>
-                <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Categoria</label>
-                <input type="text" name="category" id="category" value="{{ old('category', $post->category) }}"
-                       class="w-full rounded-lg border-gray-300 focus:ring-[#2a2185] focus:border-[#2a2185]">
+                <label for="categoria_id" class="block text-sm font-medium text-gray-700 mb-1">Categoria</label>
+                <select name="categoria_id" id="categoria_id"
+                        class="w-full rounded-lg border-gray-300 focus:ring-[#2a2185] focus:border-[#2a2185]" required>
+                        <option value="">-- Selecione uma categoria --</option>
+                        @foreach ($categorias as $cat)
+                            <option value="{{ $cat->id }}"
+                                {{ (int) old('categoria_id', $post->categoria_id) === (int) $cat->id ? 'selected' : '' }}>
+                                {{ $cat->name }}
+                            </option>
+                        @endforeach
+                </select>
             </div>
+
 
             {{-- Resumo --}}
             <div>

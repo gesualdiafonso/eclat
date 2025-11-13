@@ -43,7 +43,7 @@
                             <td class="p-3 font-semibold"><h2>{{ $post->name }}</h2></td>
                             <td class="p-3"><p>Autho: {{ $post->author }}</p></td>
                             <td class="p-3">
-                                <span class="bg-gray-800 text-white px-2 py-1 rounded text-xs">{{ $post->category }}</span>
+                                <span class="bg-gray-800 text-white px-2 py-1 rounded text-xs">{{ $post->categoria->name ?? 'No hay categoria' }}</span>
                             </td>
                             <td class="p-3 text-center flex flex-col gap-4">
                                 <a href="{{ route('admin.post.details', $post->id) }}"

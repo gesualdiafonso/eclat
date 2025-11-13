@@ -44,10 +44,14 @@
 
             {{-- Categoria --}}
             <div>
-                <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Categoria</label>
-                <input type="text" name="category" id="category"
-                       class="w-full -lg border border-gray-300 focus:ring-[#2a2185] focus:border-[#2a2185] px-3 py-2"
-                       placeholder="Categoria que el post hace referencia">
+                <label>Categoria</label>
+                <select name="categoria_id" required>
+                    <option value="">Selecione uma categoria</option>
+                    @foreach($categoria as $categ)
+                        <option value="{{ $categ->id }}">{{ $categ->name }}</option>
+                    @endforeach
+                </select>
+
             </div>
 
             {{-- Resumo --}}

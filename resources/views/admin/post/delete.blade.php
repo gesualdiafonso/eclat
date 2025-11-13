@@ -18,7 +18,9 @@
                 <h2 class="text-2xl font-semibold text-gray-800">{{ $post->title }}</h2>
                 <p class="text-gray-600">{{ $post->excerpt ?? Str::limit($post->content, 150) }}</p>
                 <p class="text-sm text-gray-500">Autor: {{ $post->author }}</p>
-                <p class="text-sm text-gray-500">Categoria: {{ $post->category }}</p>
+                <p class="text-sm text-gray-500">
+                    Categoria: {{ $post->categoria->name ?? 'Sem categoria' }}
+                </p>
                 <p class="text-sm text-gray-500">Slug: {{ $post->slug }}</p>
                 <p class="text-sm text-gray-500">Resumo: {{ $post->resume }}</p>
                 {{-- <p class="text-sm text-gray-500">Publicado em: {{ $post->created_at->format('d/m/Y') }}</p> --}}

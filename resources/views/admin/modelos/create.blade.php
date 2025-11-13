@@ -1,5 +1,16 @@
 <x-layouts.admin>
     <section class="max-w-7xl mx-auto p-6 bg-white rounded shadow">
+        {{-- Mensagem de erro geral --}}
+        @if ($errors->any())
+        <div class="mb-6 p-4 rounded-lg border border-red-400 bg-red-100 text-red-700">
+            <h2 class="font-bold text-lg mb-2">⚠️ Ocurrieron algunos errores al intentar crear el modelo:</h2>
+            <ul class="list-disc list-inside space-y-1">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <h1 class="text-2xl font-bold mb-6 text-center">Cadastrar Nuevo Modelo</h1>
 
         <form method="POST" action="{{ route('admin.modelos.store') }}" enctype="multipart/form-data" >
@@ -100,12 +111,29 @@
                     <textarea name="description" class="w-full border p-2 rounded">{{ old('description') }}</textarea>
                     @error('description') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
                 </div>
-
-                {{-- Estilos (JSON) --}}
+                {{-- Campañas --}}
                 <div class="mb-4">
-                    <label class="block font-bold">Estilos (JSON)</label>
-                    <textarea name="estilos" class="w-full border p-2 rounded">{{ old('estilos') }}</textarea>
-                    @error('estilos') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+                    <label class="block font-bold">Campañas que completa su estilos</label>
+                    <input type="text" name="campana" value="{{ old('campana') }}" class="w-full border p-2 rounded">
+                    @error('campana') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+                </div>
+
+                {{-- Estilos --}}
+                <div class="mb-4">
+                    <label class="block text-lg font-semibold mb-2">Estilos</label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        @foreach($estilos as $estilo)
+                            <label class="flex items-center space-x-2">
+                                <input
+                                    type="checkbox"
+                                    name="estilos[]"
+                                    value="{{ $estilo->estilos_id }}"
+                                    @checked(in_array($estilo->estilos_id, $estilosSelecionados ?? []))
+                                >
+                                <span>{{ $estilo->name }}</span>
+                            </label>
+                        @endforeach
+                    </div>
                 </div>
 
                 {{-- Imagem --}}

@@ -76,6 +76,11 @@
                             <label class="block font-bold">Ubicación</label>
                             <input type="text" name="ubicacion" value="{{ old('ubicacion', $modelo->ubicacion) }}" class="w-full border p-2 rounded">
                         </div>
+
+                        <div class="mb-4">
+                            <label class="block font-bold">Campañas que completa su estilos</label>
+                            <input type="text" name="campana" value="{{ old('campana', $modelo->campana) }}" class="w-full border p-2 rounded">
+                        </div>
                     </div>
 
                     <div class="mb-4">
@@ -84,9 +89,17 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="block font-bold">Estilos (JSON)</label>
-                        <textarea name="estilos" class="w-full border p-2 rounded">{{ old('estilos', $modelo->estilos) }}</textarea>
+                        <label for="estilos" class="block font-medium text-gray-700">Estilos</label>
+                        <select name="estilos[]" id="estilos" multiple class="w-full border-gray-300 rounded">
+                            @foreach($estilos as $estilo)
+                                <option value="{{ $estilo->estilos_id }}"
+                                    {{ $modelo->estilos->contains('estilos_id', $estilo->estilos_id) ? 'selected' : '' }}>
+                                    {{ $estilo->name }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
+
 
                     <div class="mb-4">
                         <label class="block font-bold">Imagen</label>

@@ -58,12 +58,15 @@
                     </div>
                 </div>
                 <div>
-                    <p>{{ $modelo->description }}</p>
-                    <ul class="flex flex-row gap-3 flex-wrap px-5 italic my-5">
-                        @foreach (json_decode($modelo->estilos) as $category)
-                                <li>{{ $category }}</li>
-                        @endforeach
-                    </ul>
+                    <div class="flex flex-wrap gap-2 justify-center mt-5">
+                        @forelse($modelo->estilos ?? [] as $estilo)
+                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
+                                {{ $estilo->name }}
+                            </span>
+                        @empty
+                            <p class="text-gray-500 italic">Versatilidade en sus estilos.</p>
+                        @endforelse
+                    </div>
                 </div>
             </div>
             <div class="w-full flex flex-col md:flex-row gap-5 md:gap-10 justify-center items-center">

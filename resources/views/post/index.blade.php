@@ -36,7 +36,7 @@
         </section>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10">
-            @foreach ($post as $pt)
+            @foreach ($posts as $pt)
                 <div class="border-b border-gray-300 py-4 w-full md:w-1/2 relative">
                     <div class="absolute w-48 h-32 -z-1 opacity-70">
                         <img class="w-full h-full overflow-hidden object-cover hover:scale-105 transition-transform duration-300"

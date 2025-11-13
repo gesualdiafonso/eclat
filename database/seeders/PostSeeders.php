@@ -24,7 +24,9 @@ class PostSeeders extends Seeder
                 'content' => 'La moda siempre ha sido un reflejo de la época, y en la actualidad, el minimalismo es más que una elección estilística: es un manifiesto. La mirada editorial sobre esta estética va más allá de la ausencia de adornos, revelando una nueva forma de sofisticación.
                                 En ÉCLAT, exploramos el minimalismo como expresión de autenticidad. Cada modelo encarna la fuerza de una presencia que no necesita excesos para afirmarse. Se trata de la claridad de las líneas, la neutralidad que impacta y la narrativa visual que invita a la mirada a descansar en formas puras.
                                 En el editorial «La nueva era del minimalismo», creamos composiciones que revelan la delicadeza de lo esencial. Los tejidos fluidos se combinan con siluetas geométricas, y la fotografía traduce la poesía del espacio en blanco. El silencio se convierte en lenguaje.
-                                    Así, el minimalismo de ÉCLAT no es ausencia, sino potencia. Es la sofisticación que se revela cuando el exceso da paso a la esencia.'
+                                    Así, el minimalismo de ÉCLAT no es ausencia, sino potencia. Es la sofisticación que se revela cuando el exceso da paso a la esencia.',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'categoria_fk' => 2,
@@ -36,7 +38,9 @@ class PostSeeders extends Seeder
                 'content' => 'O estilo urbano nunca esteve tão presente no discurso da moda. Ele transcende o streetwear e se consolida como estética de atitude. É o reflexo de uma geração que habita metrópoles em movimento, buscando identidade em meio ao caos organizado.
                                 A ÉCLAT interpreta essa revolução em um editorial onde a cidade é palco e personagem. Paredes grafitadas, luzes de néon e sombras arquitetônicas se tornam parte da narrativa visual. A moda urbana não é sobre roupas, mas sobre presença.
                                 Tecidos utilitários, cortes assimétricos e combinações ousadas traduzem a energia de quem veste liberdade. O urbano é força, é rebeldia sofisticada.
-                                Nesse manifesto visual, a ÉCLAT mostra que estilo não se prende a passarelas. Ele pulsa nas ruas, no ritmo de quem faz da cidade um eterno editorial.'
+                                Nesse manifesto visual, a ÉCLAT mostra que estilo não se prende a passarelas. Ele pulsa nas ruas, no ritmo de quem faz da cidade um eterno editorial.',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'categoria_fk' => 3,
@@ -48,7 +52,9 @@ class PostSeeders extends Seeder
                 'content' => 'La autenticidad es la nueva elegancia. En ÉCLAT, creemos que la verdadera belleza radica en la capacidad de ser uno mismo, sin máscaras ni artificios. Nuestro editorial «El Brillo de la Autenticidad» captura esta esencia a través de una serie de imágenes que celebran la diversidad y la individualidad.
                                 Cada modelo seleccionado para este proyecto representa una historia única, una personalidad que brilla con luz propia. La fotografía busca resaltar estas cualidades, utilizando iluminación natural y composiciones que enfatizan la conexión entre el sujeto y su entorno.
                                 La moda en este editorial no es solo un accesorio, sino una extensión de la identidad de cada persona. Las prendas elegidas reflejan estilos personales y narrativas individuales, creando un diálogo visual que invita a la reflexión sobre lo que significa ser auténtico en un mundo lleno de expectativas.
-                                En ÉCLAT, creemos que la autenticidad es el camino hacia una belleza duradera y significativa. A través de este editorial, esperamos inspirar a nuestra audiencia a abrazar su verdadera esencia y a encontrar el brillo que reside en ser uno mismo.'
+                                En ÉCLAT, creemos que la autenticidad es el camino hacia una belleza duradera y significativa. A través de este editorial, esperamos inspirar a nuestra audiencia a abrazar su verdadera esencia y a encontrar el brillo que reside en ser uno mismo.',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'categoria_fk' => 1,
@@ -60,7 +66,9 @@ class PostSeeders extends Seeder
                 'content' => 'La belleza es más que imagen: es movimiento. El editorial «Belleza en movimiento» se sumerge en esta idea, donde la moda se revela en transiciones sutiles, gestos espontáneos y fluidez ininterrumpida.
                                 La estética editorial de ÉCLAT transforma cada clic en un fragmento coreográfico. Tejidos ligeros y estructurados dialogan con cuerpos en acción, revelando cómo el dinamismo potencia la emoción estética.
                                 La fotografía captura no solo poses, sino también respiraciones. Cada mirada, cada desplazamiento, es parte de una narrativa viva. El movimiento aporta vulnerabilidad y fuerza al mismo tiempo.
-                                Este editorial celebra lo efímero. Porque la belleza no necesita durar para ser memorable. Solo necesita ser sentida. Y cuando se mueve, es eterna.'
+                                Este editorial celebra lo efímero. Porque la belleza no necesita durar para ser memorable. Solo necesita ser sentida. Y cuando se mueve, es eterna.',
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ]);
     }

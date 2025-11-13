@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\Estilos;
 use App\Models\Modelos;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str as SupportStr;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ModelosController extends Controller
 {
@@ -14,16 +15,14 @@ class ModelosController extends Controller
      */
     public function index()
     {
-        $modelos = DB::table('modelos')->select('*')->get();
-
-        return view('modelos.index', ['modelos' => $modelos]);
+        $modelos = Modelos::with('estilos')->get();
+        return view('modelos.index', compact('modelos'));
     }
 
     public function modelos()
     {
-        $modelo = Modelos::all();
-
-        return view('admin.modelos.index', compact(['modelo']));
+        $modelo = Modelos::with('estilos')->get();
+        return view('admin.modelos.index', compact('modelo'));
     }
 
     /**
@@ -31,7 +30,8 @@ class ModelosController extends Controller
      */
     public function create()
     {
-        return view('admin.modelos.create');
+        $estilos = Estilos::all();
+        return view('admin.modelos.create', compact('estilos'));
     }
 
     /**
@@ -41,7 +41,7 @@ class ModelosController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:modelos,name',
-            'image' => 'required|image|mimes:jpg,jpeg, png,webp|max:2048',
+            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             'altura' => 'required|numeric|min:0',
             'bust' => 'required|numeric|min:0',
             'cintura' => 'required|numeric|min:0',
@@ -50,37 +50,35 @@ class ModelosController extends Controller
             'tamano' => 'required|string|max:10',
             'ojos' => 'required|string|max:50',
             'cabello' => 'required|string|max:60',
-            'fecha_nacimiento' => '',
+            'fecha_nacimiento' => 'nullable|date',
             'ubicacion' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:100',
             'description' => 'required|string',
             'campana' => 'required|string',
+            'estilos' => 'nullable|array',
         ]);
 
-        $data = $request->except(['_token']);
+        $data = $request->except(['_token', 'estilos']);
 
-        if($request->hasFile('image')){
+        // Upload da imagem
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
-
-            // Genero el nombre a base del nombre
-            $nameSlug = SupportStr::slug($request->input('name'));
+            $nameSlug = Str::slug($request->input('name'));
             $imageName = $nameSlug . '-' . time() . '.' . $image->getClientOriginalExtension();
-
-            // Armazeno con storeAs()
             $path = $image->storeAs('modelos_eclat', $imageName, 'public');
-
-            // camino a la base de datos
             $data['image'] = 'storage/' . $path;
         }
 
-        if (!empty($data['estilos'])) {
-            $estilos = array_map('trim', explode(',', $data['estilos']));
-            $data['estilos'] = json_encode($estilos);
+        // Cria o modelo
+        $modelo = Modelos::create($data);
+
+        // Relaciona estilos (attach)
+        if ($request->filled('estilos')) {
+            $modelo->estilos()->attach($request->input('estilos'));
         }
 
-        Modelos::create($data);
-
-        return redirect()->route('admin.modelos.index')->with('success', 'Modelo creado con el éxitos.');
+        return redirect()->route('admin.modelos.index')
+            ->with('success', 'Modelo creado con éxito.');
     }
 
     /**
@@ -88,9 +86,8 @@ class ModelosController extends Controller
      */
     public function show(int $id)
     {
-        $modelo = Modelos::findOrFail($id);
-
-        return view('modelos.show', ['modelo' => $modelo]);
+        $modelo = Modelos::with('estilos')->findOrFail($id);
+        return view('modelos.show', compact('modelo'));
     }
 
     /**
@@ -98,9 +95,13 @@ class ModelosController extends Controller
      */
     public function edit(int $id)
     {
-        $modelo = Modelos::findOrFail($id);
+        $modelo = Modelos::with('estilos')->findOrFail($id);
+        $estilos = Estilos::all();
 
-        return view('admin.modelos.edit', ['modelo' => $modelo]);
+        // Passa os IDs dos estilos já vinculados para marcar no form
+        $estilosSelecionados = $modelo->estilos->pluck('estilos_id')->toArray();
+
+        return view('admin.modelos.edit', compact('modelo', 'estilos', 'estilosSelecionados'));
     }
 
     /**
@@ -121,43 +122,46 @@ class ModelosController extends Controller
             'tamano' => 'required|string|max:10',
             'ojos' => 'required|string|max:50',
             'cabello' => 'required|string|max:60',
-            'fecha_nacimiento' => 'required|date',
+            'fecha_nacimiento' => 'nullable|date',
             'ubicacion' => 'nullable|string|max:255',
             'instagram' => 'nullable|string|max:255',
             'description' => 'required|string',
-            'campanas' => 'required|string',
+            'campana' => 'required|string',
+            'estilos' => 'nullable|array',
         ]);
 
-        $data = $request->except(['_token']);
+        $data = $request->except(['_token', 'estilos']);
 
+        // Substitui a imagem, se enviada
         if ($request->hasFile('image')) {
-
-            // Borra la imagem anterior, si existir
             if ($modelo->image && file_exists(public_path($modelo->image))) {
                 unlink(public_path($modelo->image));
             }
-
             $image = $request->file('image');
-            $nameSlug = SupportStr::slug($request->input('name'));
+            $nameSlug = Str::slug($request->input('name'));
             $imageName = $nameSlug . '-' . time() . '.' . $image->getClientOriginalExtension();
-
             $path = $image->storeAs('modelos_eclat', $imageName, 'public');
             $data['image'] = 'storage/' . $path;
         }
 
-        // transformar estilos em JSON
-        $data['estilos'] = json_encode(explode(',', $request->input('estilos')));
-
         $modelo->update($data);
 
-        return redirect()->route('admin.modelos.index')->with('success', 'Modelo actualizado con éxito');
+        // Atualiza os estilos (sync substitui attach/detach automático)
+        if ($request->filled('estilos')) {
+            $modelo->estilos()->sync($request->input('estilos'));
+        } else {
+            // Se não tiver estilos selecionados, remove todos
+            $modelo->estilos()->detach();
+        }
+
+        return redirect()->route('admin.modelos.index')
+            ->with('success', 'Modelo actualizado con éxito.');
     }
 
     public function delete(int $id)
     {
         $modelo = Modelos::findOrFail($id);
-
-        return view('admin.modelos.delete', ['modelo' => $modelo]);
+        return view('admin.modelos.delete', compact('modelo'));
     }
 
     /**
@@ -167,13 +171,17 @@ class ModelosController extends Controller
     {
         $modelo = Modelos::findOrFail($id);
 
-        // Borra la imagem asociada antes de borrar del registro
+        // Remove relações
+        $modelo->estilos()->detach();
+
+        // Remove imagem física
         if ($modelo->image && file_exists(public_path($modelo->image))) {
             unlink(public_path($modelo->image));
         }
 
         $modelo->delete();
 
-        return redirect()->route('admin.modelos.index')->with('success', 'Modelo eliminado con éxito');
+        return redirect()->route('admin.modelos.index')
+            ->with('success', 'Modelo eliminado con éxito.');
     }
 }

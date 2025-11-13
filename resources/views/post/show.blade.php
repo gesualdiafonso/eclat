@@ -20,7 +20,7 @@
                 ✍️ <span class="font-semibold">{{ $post->author }}</span>
             </p>
             <p>
-                📂 <span class="italic">{{ $post->category ?? 'Sin categoría' }}</span>
+                📂 <span class="italic">{{ $post->categoria->name ?? 'Sin categoría' }}</span>
             </p>
         </div>
 

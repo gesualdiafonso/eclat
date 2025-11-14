@@ -42,8 +42,10 @@
 
         <div class="card">
             <div>
-                <div class="number">Control de Ventas</div>
-                <div class="cardName">Ventas Views</div>
+                <div class="number">{{ $totalPedidos }}</div>
+                <div class="cardName">
+                    <x-nav-link route="admin.pedidos.index">Solicitaciones Control</x-nav-link>
+                </div>
             </div>
             <div class="iconBx">
                 <ion-icon name="card-outline"></ion-icon>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Estilos;
 use App\Models\Modelos;
+use App\Models\Pedidos;
 use App\Models\Post;
 use App\Models\Servicio;
 use App\Models\User;
@@ -18,12 +19,14 @@ class AdminController extends Controller
         $totalServicios = Servicio::count();
         $totalPosts = Post::count();
         $totalModelos = Modelos::count();
+        $totalPedidos = Pedidos::count();
         $allModelos = Modelos::all();
         $allServicios = Servicio::all();
         $allPosts = Post::all();
+        $allPedidos = Pedidos::all();
 
 
-        return view('admin.dashboard', compact('totalServicios', 'totalPosts', 'totalModelos', 'allModelos', 'allServicios', 'allPosts'));
+        return view('admin.dashboard', compact('totalServicios', 'totalPosts', 'totalModelos', 'totalPedidos', 'allModelos', 'allServicios', 'allPosts', 'allPedidos'));
     }
 
     public function search(Request $request)

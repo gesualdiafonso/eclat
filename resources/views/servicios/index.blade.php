@@ -8,11 +8,11 @@
 <x-layouts.main>
     <x-slot:title>Éclat Servicios, el mejor casting encuentras aquí!</x-slot:title>
     <section class="relative h-auto bg-black mb-16">
-        <div class="relative w-full h-auto">
+        <div class="relative h-auto">
             <div>
                 <img src="{{ asset('assets/images/eclat_background/3.jpg') }}" alt="Explore la moda Argentina, Fashion Weck Argentina 24 de mayo 2025">
             </div>
-            <div class="absolute bottom-0 lg:bottom-10 text-white w-full py-10 px-16 left-5">
+            <div class="absolute bottom-0 lg:bottom-10 text-white py-10 px-16 left-5">
                 <h2 class="text-white text-xl md:text-3xl lg:text-5xl font-bold w-full md:w-1/2 m-0">Servicios exclusivos para su marca en la semana de la Moda en Argnetina</h2>
             </div>
         </div>

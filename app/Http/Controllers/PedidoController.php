@@ -15,20 +15,24 @@ class PedidoController extends Controller
     // Confirmar / finalizar criar el pedido real
     public function finalize(Request $request)
     {
-        $pedidoSession = session('pedido', ['modelos' => [], 'servicios' => []]);
+        // pega shortlist
+        $pedidoSession = [
+            'modelos' => session('shortlist.modelo', []),
+            'servicios' => session('shortlist.servicio', [])
+        ];
 
         if (empty($pedidoSession['modelos']) && empty($pedidoSession['servicios'])) {
             return back()->with('warning', 'No hay items seleccionados.');
         }
 
         if (!Auth::check()) {
-            // irá redirecionar para el registro/login y mantener la sesión
-            return redirect()->route('auth.register')->with('info', 'Regístrate para finalizar tu solicitud.');
+            return redirect()->route('auth.register')
+                ->with('info', 'Regístrate para finalizar tu solicitud.');
         }
 
         $user = Auth::user();
 
-        // Cria pedido
+        // criar pedido
         $pedido = Pedidos::create([
             'user_id' => $user->id,
             'status' => 'pendente',
@@ -36,26 +40,29 @@ class PedidoController extends Controller
         ]);
 
         // persistir modelos
-        foreach ($pedidoSession['modelos'] ?? [] as $m) {
+        foreach ($pedidoSession['modelos'] as $id) {
             PedidoModelo::create([
                 'pedido_id' => $pedido->id,
-                'modelo_id' => $m['id'],
-                'quantity' => $m['quantity'] ?? 1
+                'modelo_id' => $id,
+                'quantity' => 1
             ]);
         }
 
-        // persistir serivcios
-        foreach ($pedidoSession['servicios'] ?? [] as $s) {
+        // persistir servicios
+        foreach ($pedidoSession['servicios'] as $id) {
             PedidoServicio::create([
                 'pedido_id' => $pedido->id,
-                'servico_id' => $s['id'],
-                'quantity' => $s['quantity'] ?? 1
+                'servicio_id' => $id,
+                'quantity' => 1
             ]);
         }
 
-        // limpiar la sesión
-        session()->forget('pedido');
+        // limpar shortlist
+        session()->forget('shortlist.modelo');
+        session()->forget('shortlist.servicio');
 
-        return redirect()->route('client.profile')->with('success', 'Solicitud enviada con éxito.');
+        return redirect()->route('client.profile')
+            ->with('success', 'Solicitud enviada con éxito.');
     }
+
 }

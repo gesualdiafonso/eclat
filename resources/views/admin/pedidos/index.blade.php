@@ -16,7 +16,7 @@
                     </td>
                     <td>
                         @foreach ($p->servicios as $s)
-                            {{ $s->servico->name }},
+                            {{ $s->servicio->name }},
                         @endforeach
                     </td>
                     <td>{{ $p->status }}</td>

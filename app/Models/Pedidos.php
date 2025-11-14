@@ -9,6 +9,8 @@ class Pedidos extends Model
 {
     use HasFactory;
 
+    protected $table = 'pedidos';
+
     protected $fillable = [
         'user_id',
         'status',
@@ -22,11 +24,11 @@ class Pedidos extends Model
 
     public function modelos()
     {
-        return $this->hasMany(PedidoModelo::class);
+        return $this->hasMany(PedidoModelo::class, 'pedido_id');
     }
 
     public function servicios()
     {
-        return $this->hasMany(PedidoServicio::class);
+        return $this->hasMany(PedidoServicio::class , 'pedido_id');
     }
 }

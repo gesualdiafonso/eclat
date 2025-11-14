@@ -11,7 +11,7 @@
     <h3>Serviços</h3>
     <ul>
         @foreach ($pedido->servicios as $s)
-            <li>{{ $s->servico->name }} — qty: {{ $s->quantity }}</li>
+            <li>{{ $s->servicio->name }} — qty: {{ $s->quantity }}</li>
         @endforeach
     </ul>
 </x-layouts.admin>

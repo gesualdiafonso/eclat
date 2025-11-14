@@ -10,15 +10,17 @@ class PedidoModelo extends Model
 {
     use HasFactory;
 
+    protected $table = 'pedidos_modelos';
+
     protected $fillable = ['pedido_id','modelo_id','quantity'];
 
     public function pedido()
     {
-        return $this->belongsTo(Pedidos::class);
+        return $this->belongsTo(Pedidos::class, 'pedido_id');
     }
 
     public function modelo()
     {
-        return $this->belongsTo(Modelos::class);
+        return $this->belongsTo(Modelos::class , 'modelo_id');
     }
 }

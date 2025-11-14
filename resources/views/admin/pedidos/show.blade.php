@@ -10,7 +10,7 @@
 
     <h3>Serviços</h3>
     <ul>
-        @foreach ($pedido->servicos as $s)
+        @foreach ($pedido->servicios as $s)
             <li>{{ $s->servico->name }} — qty: {{ $s->quantity }}</li>
         @endforeach
     </ul>

@@ -10,7 +10,7 @@
                 <h3>Historial de Contrataciones</h3>
 
                 @php
-                    $pedidos = auth()->user()->pedidos()->with(['modelos.modelo','servicos.servico'])->orderByDesc('created_at')->get();
+                    $pedidos = auth()->user()->pedidos()->with(['modelos.modelo','servicios.servico'])->orderByDesc('created_at')->get();
                 @endphp
 
                 @if ($pedidos->isEmpty())
@@ -36,7 +36,7 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        @foreach ($pedido->servicos as $ps)
+                                        @foreach ($pedido->servicios as $ps)
                                             {{ $ps->servico->name }} (x{{ $ps->quantity }})<br>
                                         @endforeach
                                     </td>

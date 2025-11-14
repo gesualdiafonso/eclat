@@ -7,21 +7,31 @@
 
         <h3 class="text-xl font-semibold mb-5">Modelos Seleccionados</h3>
 
-        @forelse($modelos as $m)
-            <div class="border p-4 rounded mb-2">{{ $m->name }}</div>
-        @empty
-            <p class="text-gray-400">No hay modelo seleccionado.</p>
-        @endforelse
+        <div class="flex gap-3">
+            @forelse($modelo as $m)
+                <div class=" mb-2 w-48 h-auto relative hover:bg-black bg-transparent hover:text-white duration-500 transition-all"">
+                    <img src="{{ asset($m->image) }}" alt="{{ $m->name }}" class="w-full h-full hover:opacity-50">
+                    <span class="absolute px-5 pb-5 bottom-0 w-full duration-500 transition-all">{{ $m->name }}</span>
+                </div>
+            @empty
+                <p class="text-gray-400">No hay modelo seleccionado.</p>
+            @endforelse
+        </div>
 
         <h3 class="text-xl font-semibold mt-10 mb-5">Servicios Seleccionados</h3>
 
-        @forelse($servicios as $s)
-            <div class="border p-4 rounded mb-2">{{ $s->name }}</div>
-        @empty
-            <p class="text-gray-400">No hay servicios seleccionado.</p>
-        @endforelse
+        <div class="flex gap-3">
+            @forelse($servicio as $s)
+                <div class=" mb-2 w-48 h-auto relative hover:bg-black bg-transparent hover:text-white duration-500 transition-all"">
+                    <img src="{{ asset($s->image) }}" alt="{{ $s->name }}" class="w-full h-full hover:opacity-40">
+                    <span class="absolute px-2 pb-5 bottom-0 w-full duration-500 transition-all">{{ $s->name }}</span>
+                </div>
+            @empty
+                <p class="text-gray-400">No hay modelo seleccionado.</p>
+            @endforelse
+        </div>
 
-        <form method="POST" action="{{ route('shortlist.finalize') }}" class="mt-10">
+        <form method="POST" action="{{ route('pedido.finalize') }}" class="mt-10">
             @csrf
             <button class="px-6 py-3 bg-black text-white rounded">
                 Confirmar Contratación

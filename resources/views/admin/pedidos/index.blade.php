@@ -15,7 +15,7 @@
                         @endforeach
                     </td>
                     <td>
-                        @foreach ($p->servicos as $s)
+                        @foreach ($p->servicios as $s)
                             {{ $s->servico->name }},
                         @endforeach
                     </td>

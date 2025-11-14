@@ -17,13 +17,13 @@ class AdminPedidoController extends BaseController
 
     public function index()
     {
-        $pedidos = Pedidos::with(['user','modelos.modelo','servicos.servico'])->orderByDesc('created_at')->get();
+        $pedidos = Pedidos::with(['user','modelos.modelo','servicios.servico'])->orderByDesc('created_at')->get();
         return view('admin.pedidos.index', compact('pedidos'));
     }
 
     public function show(Pedidos $pedido)
     {
-        $pedido->load(['user','modelos.modelo','servicos.servico']);
+        $pedido->load(['user','modelos.modelo','servicios.servico']);
         return view('admin.pedidos.show', compact('pedido'));
     }
 }

@@ -34,7 +34,7 @@
 
                         <x-selecionar-item
                             :id="$servicios->id"
-                            type="servico"
+                            type="servicio"
                             class="btn-add-servico bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-200"
                         />
                     </div>

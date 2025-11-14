@@ -105,19 +105,10 @@ Route::prefix('client')->name('client.')->middleware(['auth', 'role:client'])->g
 // ************** Pedido via Sessão / AJAX *************
 // ****************************************************
 
-Route::post('/pedido/modelo/add', [PedidoController::class, 'addModeloToSession'])->name('pedido.modelo.add');
-Route::post('/pedido/modelo/remove', [PedidoController::class, 'removeModeloFromSession'])->name('pedido.modelo.remove');
-
 Route::post('/shortlist/toggle', [ShortlistController::class, 'toggle'])->name('shortlist.toggle');
+Route::get('/shortlist/session', [ShortlistController::class, 'session'])->name('shortlist.session');
 Route::get('/shortlist', [ShortlistController::class, 'index'])->name('shortlist.index');
-Route::post('/shortlist/confirm', [ShortlistController::class, 'finalize'])->name('shortlist.finalize');
 
-
-Route::post('/pedido/servico/add', [PedidoController::class, 'addServicoToSession'])->name('pedido.servico.add');
-Route::post('/pedido/servico/remove', [PedidoController::class, 'removeServicoFromSession'])->name('pedido.servico.remove');
-
-// Visualizar sessão (preview do pedido)
-Route::get('/pedido/session', [PedidoController::class, 'sessionShow'])->name('pedido.session.show');
 
 // Finalizar (gera pedido no banco)
 Route::post('/pedido/finalize', [PedidoController::class, 'finalize'])->middleware('auth')->name('pedido.finalize');

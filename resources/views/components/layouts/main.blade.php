@@ -16,7 +16,7 @@
 
     <x-header.main></x-header.main>
 
-    @include('partials.pedido-panel')
+    @include('partials.shortlist-panel')
     <main class="">
         {{ $slot }}
     </main>
@@ -27,43 +27,7 @@
 
     <script src="{{ asset('assets/js/navScript.js') }}"></script>
 
-    {{-- Script AJAX para adicionar/remover modelos/serviços e atualizar painel --}}
-    @push('scripts')
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const updatePanel = (count) => {
-        document.getElementById('shortlist-count').innerText = count;
-    };
-
-    document.querySelectorAll(".select-heart").forEach(btn => {
-        btn.addEventListener("click", function () {
-
-            const id = this.dataset.id;
-            const type = this.dataset.type;
-
-            fetch("{{ route('shortlist.toggle') }}", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                },
-                body: JSON.stringify({ item_id: id, type: type })
-            })
-            .then(res => res.json())
-            .then(data => {
-                // Atualiza coração
-                const icon = this.querySelector(".heart-icon");
-                icon.textContent = data.selected ? "🖤" : "🤍";
-
-                // Atualiza o painel
-                updatePanel(data.total);
-            });
-        });
-    });
-});
-</script>
-@endpush
+    @stack('scripts')
 
 </body>
 </html>

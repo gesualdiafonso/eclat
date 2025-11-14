@@ -11,10 +11,10 @@
     </div>
 
     @auth
-    <div class="absolute top-12 right-40 flex items-center gap-4 z-[9999]">
+    <div class="fixed bottom-9 right-9 flex items-center gap-4 z-1 bg-black p-3 rounded-full">
 
         <!-- Nome do usuário -->
-        <span class="text-gray-900 text-sm tracking-wide uppercase">
+        <span class="text-white text-sm tracking-wide uppercase">
             {{ Auth::user()->name }}
         </span>
 
@@ -23,11 +23,18 @@
             @csrf
             <button
                 type="submit"
-                class="px-3 py-1 text-xs uppercase tracking-wider bg-white/10 backdrop-blur-md text-gray-800 border border-white/20 hover:text-white hover:bg-black hover:border-white/30 hover:rounded-full transition-all duration-300"
+                class="px-3 py-1 text-xs uppercase tracking-wider bg-white backdrop-blur-md text-gray-800 border border-white/20 hover:text-white hover:bg-black hover:border-white/30 rounded-full transition-all duration-300"
             >
                 Logout
             </button>
         </form>
+
+        <x-nav-link
+            route="client.profile"
+            class="px-3 py-1 text-xs uppercase tracking-wider bg-white backdrop-blur-md text-gray-800 border border-white/20 hover:text-white hover:bg-black hover:border-white/30 rounded-full transition-all duration-300"
+            >
+            Ver Perfil
+        </x-nav-link>
 
     </div>
     @endauth
@@ -76,6 +83,29 @@
                     <p>Lisa Bauer</p>
                 </div>
             </div>
+            @auth
+            <div class="fixed bottom-9 right-9 flex items-center gap-4 z-[9999] bg-white p-3">
+
+                <!-- Nome do usuário -->
+                <x-nav-link route="client.profile">
+                    <span class="text-black text-sm tracking-wide uppercase">
+                        {{ Auth::user()->name }}
+                    </span>
+                </x-nav-link>
+
+                <!-- Logout -->
+                <form action="{{ route('auth.logout') }}" method="POST">
+                    @csrf
+                    <button
+                        type="submit"
+                        class="px-3 py-1 text-xs uppercase tracking-wider bg-white backdrop-blur-md text-gray-800 border border-white/20 hover:text-white hover:bg-black hover:border-white/30 rounded-full transition-all duration-300"
+                    >
+                        Logout
+                    </button>
+                </form>
+
+            </div>
+            @endauth
         </div>
     </div>
     {{-- <div class="cs-header mx-auto">

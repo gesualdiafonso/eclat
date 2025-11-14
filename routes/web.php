@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\AdminPedidoController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -79,6 +82,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
         Route::get('/{id}/delete', [\App\Http\Controllers\ModelosController::class, 'delete'])->name('delete');
         Route::delete('/{id}', [\App\Http\Controllers\ModelosController::class, 'destroy'])->name('destroy');
     });
+
+    Route::prefix('pedidos')->name('pedidos.')->group(function () {
+        Route::get('/', [AdminPedidoController::class, 'index'])->name('index');
+        Route::get('/{pedido}', [AdminPedidoController::class, 'show'])->name('show');
+    });
 });
 
 
@@ -91,3 +99,19 @@ Route::prefix('client')->name('client.')->middleware(['auth', 'role:client'])->g
         ->name('profile');
 
 });
+
+// ****************************************************
+// ************** Pedido via Sessão / AJAX *************
+// ****************************************************
+
+Route::post('/pedido/modelo/add', [PedidoController::class, 'addModeloToSession'])->name('pedido.modelo.add');
+Route::post('/pedido/modelo/remove', [PedidoController::class, 'removeModeloFromSession'])->name('pedido.modelo.remove');
+
+Route::post('/pedido/servico/add', [PedidoController::class, 'addServicoToSession'])->name('pedido.servico.add');
+Route::post('/pedido/servico/remove', [PedidoController::class, 'removeServicoFromSession'])->name('pedido.servico.remove');
+
+// Visualizar sessão (preview do pedido)
+Route::get('/pedido/session', [PedidoController::class, 'sessionShow'])->name('pedido.session.show');
+
+// Finalizar (gera pedido no banco)
+Route::post('/pedido/finalize', [PedidoController::class, 'finalize'])->middleware('auth')->name('pedido.finalize');

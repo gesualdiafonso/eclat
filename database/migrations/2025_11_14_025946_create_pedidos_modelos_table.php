@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('pedidos_modelos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pedido_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('modelo_id')->constrained()->cascadeOnDelete();
+            $table->integer('quantity')->default(1);
             $table->timestamps();
         });
     }

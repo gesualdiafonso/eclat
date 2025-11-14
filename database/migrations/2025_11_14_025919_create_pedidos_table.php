@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('status')->default('pendiente')->comment('Estados posibles: pendiente, en_proceso, completado, cancelado');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

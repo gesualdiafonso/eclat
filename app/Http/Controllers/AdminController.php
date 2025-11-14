@@ -24,9 +24,9 @@ class AdminController extends Controller
         $allServicios = Servicio::all();
         $allPosts = Post::all();
         $allPedidos = Pedidos::all();
+        $userPaginated = User::paginate(2);
 
-
-        return view('admin.dashboard', compact('totalServicios', 'totalPosts', 'totalModelos', 'totalPedidos', 'allModelos', 'allServicios', 'allPosts', 'allPedidos'));
+        return view('admin.dashboard', compact('totalServicios', 'totalPosts', 'totalModelos', 'totalPedidos', 'allModelos', 'allServicios', 'allPosts', 'allPedidos', 'userPaginated'));
     }
 
     public function search(Request $request)

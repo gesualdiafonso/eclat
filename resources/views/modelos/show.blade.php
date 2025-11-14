@@ -57,6 +57,14 @@
                         <span>{{ $modelo->fecha_nacimiento}}</span>
                     </div>
                 </div>
+                <div class="w-full">
+                    <span class="text-xl font-semibold">Descripción:</span>
+                    <p>{{$modelo->campana}}</p>
+                </div>
+                <div class="w-full">
+                    <span class="text-xl font-semibold">Descripción:</span>
+                    <p>{{$modelo->description}}</p>
+                </div>
                 <div>
                     <div class="flex flex-wrap gap-2 justify-center my-10 ">
                         @forelse($modelo->estilos ?? [] as $estilo)

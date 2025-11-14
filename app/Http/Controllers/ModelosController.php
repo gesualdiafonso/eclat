@@ -22,7 +22,8 @@ class ModelosController extends Controller
     public function modelos()
     {
         $modelo = Modelos::with('estilos')->get();
-        return view('admin.modelos.index', compact('modelo'));
+        $modelosPaginated = Modelos::with('estilos')->paginate(6);
+        return view('admin.modelos.index', compact(['modelo', 'modelosPaginated']));
     }
 
     /**

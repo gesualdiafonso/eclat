@@ -122,6 +122,31 @@
                 @endforeach
             </table>
         </div>
+
+        {{-- Mostrar usuarios registrados --}}
+        <div class="recentCustomers">
+            <div class="cardHeader">
+                <h2> Usuarios Registrados </h2>
+            </div>
+
+            <table>
+                @foreach ($userPaginated as $user)
+                    <tr>
+                        <td width="60px">
+                            <span>{{ $user->email }}</span>
+                        </td>
+                        <td>
+                            <h3>{{ $user->name }}</h3>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+
+            <!-- Paginação interna -->
+            <div class="px-4 py-3 flex justify-center">
+                {{ $userPaginated->links('pagination::tailwind') }}
+            </div>
+        </div>
     </div>
 
 </x-layouts.admin>

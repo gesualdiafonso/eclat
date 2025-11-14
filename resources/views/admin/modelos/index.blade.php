@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($modelo as $model)
+                        @forelse ($modelosPaginated as $model)
                             <tr class="border-b hover:bg-gray-100">
                                 <td class="p-3"><span>{{ $model->id }}</span></td>
                                 <td class="p-3 font-semibold"><h2>{{ $model->name }}</h2></td>
@@ -90,6 +90,9 @@
                         @endforelse
                     </tbody>
                 </table>
+                <div class="px-4 py-3 flex justify-center">
+                    {{ $modelosPaginated->links('pagination::tailwind') }}
+                </div>
             </div>
         </section>
 

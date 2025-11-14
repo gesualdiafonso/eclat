@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\AdminPedidoController;
+use App\Http\Controllers\ShortlistController;
 
 
 // Route::get('/', function () {
@@ -106,6 +107,11 @@ Route::prefix('client')->name('client.')->middleware(['auth', 'role:client'])->g
 
 Route::post('/pedido/modelo/add', [PedidoController::class, 'addModeloToSession'])->name('pedido.modelo.add');
 Route::post('/pedido/modelo/remove', [PedidoController::class, 'removeModeloFromSession'])->name('pedido.modelo.remove');
+
+Route::post('/shortlist/toggle', [ShortlistController::class, 'toggle'])->name('shortlist.toggle');
+Route::get('/shortlist', [ShortlistController::class, 'index'])->name('shortlist.index');
+Route::post('/shortlist/confirm', [ShortlistController::class, 'finalize'])->name('shortlist.finalize');
+
 
 Route::post('/pedido/servico/add', [PedidoController::class, 'addServicoToSession'])->name('pedido.servico.add');
 Route::post('/pedido/servico/remove', [PedidoController::class, 'removeServicoFromSession'])->name('pedido.servico.remove');

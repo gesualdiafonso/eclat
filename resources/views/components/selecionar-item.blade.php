@@ -1,4 +1,7 @@
-<div class="model-card" data-id="{{ $modelo->id }}">
-    <h4>{{ $modelo->name }}</h4>
-    <button class="btn-add-modelo" data-id="{{ $modelo->id }}">Seleccionar modelo</button>
-</div>
+<button
+    class="select-heart text-3xl transition duration-300"
+    data-id="{{ $id }}"
+    data-type="{{ $type }}"
+>
+    <span class="heart-icon">🤍</span>
+</button>

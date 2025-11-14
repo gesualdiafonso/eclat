@@ -77,12 +77,11 @@
                     ← Volver a Modelos
                 </a>
 
-                <a
-                    href="#"
-                    class="px-6 py-3 text-black border-2 border-black hover:bg-black hover:text-white font-semibold shadow-md transition duration-500"
-                >
-                    Solicitar Modelo
-                </a>
+                <x-selecionar-item
+                    :id="$modelo->id"
+                    type="modelo"
+                    class="btn-add-modelo bg-blue-600 text-white px-6 py-3 font-medium hover:bg-blue-700 transition duration-200"
+                />
             </div>
         </div>
     </section>

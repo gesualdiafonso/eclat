@@ -32,12 +32,11 @@
                             ← Volver a Servicios
                         </a>
 
-                        <a
-                            href="#"
-                            class="px-6 py-3 rounded-full text-black border-2 border-black hover:bg-black hover:text-white font-semibold shadow-md transition duration-500"
-                        >
-                            Solicitar Servicio
-                        </a>
+                        <x-selecionar-item
+                            :id="$servicios->id"
+                            type="servico"
+                            class="btn-add-servico bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-200"
+                        />
                     </div>
                 </div>
             </div>

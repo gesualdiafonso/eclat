@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div>
-                    <div class="flex flex-wrap gap-2 justify-center mt-5">
+                    <div class="flex flex-wrap gap-2 justify-center my-10 ">
                         @forelse($modelo->estilos ?? [] as $estilo)
                             <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">
                                 {{ $estilo->name }}

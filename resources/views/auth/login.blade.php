@@ -28,11 +28,20 @@
                            required>
                 </div>
 
-                <!-- Submit -->
-                <button type="submit"
-                        class="w-full border-2 border-black text-black font-semibold py-2 px-4 hover:text-white hover:bg-black transition-all duration-500">
-                    Entrar
-                </button>
+                <div class="flex flex-col gap-5">
+                    <!-- Submit -->
+                    <button type="submit"
+                    class="w-full border-2 border-black text-black font-semibold py-2 px-4 hover:text-white hover:bg-black transition-all duration-500">
+                        Entrar
+                    </button>
+
+                    <!-- Register Link -->
+                    <x-nav-link route="auth.register"
+                            class="w-full border-2 border-black text-black font-semibold py-2 px-4 hover:text-white hover:bg-black transition-all duration-500 text-center"
+                    s>
+                        <span class="text-center">Registrar</span>
+                    </x-nav-link>
+                </div>
             </form>
         </div>
     </section>

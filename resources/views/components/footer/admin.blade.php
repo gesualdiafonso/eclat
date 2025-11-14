@@ -3,7 +3,6 @@
         <!-- Texto simples -->
         <p class="text-sm font-sans">&copy; {{ date('Y') }} ÉCLAT Admin. Todos los derechos reservados.</p>
 
-        <!-- Links rápidos (opcional) -->
         <div class="flex space-x-4 mt-4 md:mt-0">
             <a href="#" class="hover:text-white text-sm font-sans transition-colors">Ayuda</a>
             <a href="#" class="hover:text-white text-sm font-sans transition-colors">Terminos</a>

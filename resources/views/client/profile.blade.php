@@ -18,7 +18,7 @@
                 @else
                     <table class="w-full">
                         <thead>
-                            <tr>
+                            <tr class="border bg-gray-200">
                                 <th>#</th>
                                 <th>Modelos</th>
                                 <th>Servicios</th>
@@ -28,9 +28,9 @@
                         </thead>
                         <tbody>
                             @foreach ($pedidos as $pedido)
-                                <tr>
-                                    <td>#{{ $pedido->id }}</td>
-                                    <td>
+                                <tr class="border hover:bg-gray-300">
+                                    <td class="px-5">#{{ $pedido->id }}</td>
+                                    <td class="p-5">
                                         @foreach ($pedido->modelos as $pm)
                                             {{ $pm->modelo->name }} (x{{ $pm->quantity }})<br>
                                         @endforeach

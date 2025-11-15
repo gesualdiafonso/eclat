@@ -8,15 +8,15 @@
         {{-- Grid estilo Pinterest --}}
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach($modelos as $model)
-                <div class="mb-6 break-inside-avoid group relative overflow-hidden shadow-xl shadow-black/40 bg-white">
+                <div class="mb-6 break-inside-avoid group relative overflow-hidden shadow-xl shadow-black/40 bg-black">
 
                     {{-- Imagem --}}
                     <img src="{{ $model->image }}"
                          alt="{{ $model->name }}"
-                         class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                         class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 hover:opacity-50">
 
                     {{-- Overlay --}}
-                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-6">
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-6">
                         <h3 class="text-xl font-light text-white">{{ $model->name }}</h3>
                         <span class="text-xl font-light text-white">{{ $model->altura }}</span>
                         <span class="text-xl font-light text-white">{{ $model->ojos }}</span>

@@ -7,15 +7,17 @@
             <p class="text-gray-700">Verifique nuestras ultimas postagens</p>
         </div>
 
-        <section class="w-full h-full mb-16 shadow-lg group">
-            <div class="w-full h-full lg:h-96 flex flex-col lg:flex-row gap-5 md:gap-10 p-10">
-                <img
+        <section class="w-full h-auto mb-16 shadow-lg group">
+            <div class="w-full h-auto flex flex-col lg:flex-row gap-5 md:gap-10 p-10">
+                <div>
+                    <img
                     src="{{ asset($lastPost->image) }}"
                     alt="{{ $lastPost->name }}"
                     class="inset-0 w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-500"
                 >
+                </div>
 
-                <div class="text-gray-700 max-w-4xl ">
+                <div class="text-gray-700 max-w-4xl h-full">
                     <h3 class="text-3xl lg:text-5xl font-bold leading-tight mb-4 tracking-wide">
                         {{ $lastPost->name }}
                     </h3>
@@ -44,8 +46,8 @@
                             alt="{{ $pt->name }}"
                         >
                     </div>
-                    <div class="relative w-full flex flex-col bg-gray-950 h-full mt-20">
-                        <h2 class="text-xl font-semibold">{{ $pt->name }}</h2>
+                    <div class="relative w-full flex flex-col h-full mt-20">
+                        <h2 class="text-xl font-semibold bg-white">{{ $pt->name }}</h2>
                         <p class="text-gray-600">{{ $pt->resume }}</p>
                         <span class="text-sm text-gray-500">
                             Publicado em: {{ optional($pt->created_at)->format('d/m/Y') ?? 'Sem data' }}

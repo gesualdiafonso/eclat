@@ -18,9 +18,12 @@ Docente:
 Database está en MySQL local 3306
 
 Seeders:
-    Modelos -> 12
+    Modelos -> 12 --> Relacion N:N
     Servicio -> 6
-    Post -> 4
-    User -> 1 usuario test (admin@eclat.com)
+    Post -> 4 --> Relacion 1:N
+    User -> 1 usuario test (admin@eclat.com) para admin, 2 para servicios en Seeders
+    Serivicios --> Pedidos
+    Modelos --> Pedidos
+    Pedidos --> Modelos y Servicios
 
 Link repositorio GitHub: https://github.com/gesualdiafonso/eclat.git

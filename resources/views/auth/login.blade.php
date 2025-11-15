@@ -6,7 +6,7 @@
         <div class="relative w-full h-full">
             <img src="{{ asset('assets/images/eclat_background/1.jpg') }}" alt="">
         </div>
-        <div class="absolute bg-white p-8 h-96 rounded-lg shadow-md w-full max-w-md ">
+        <div class="absolute bg-white p-8 h-auto rounded-lg shadow-md w-full max-w-md ">
             <h1 class="text-2xl font-bold mb-6 text-center">Login</h1>
 
             <form method="POST" action="{{ route('auth.login.process') }}">
@@ -18,6 +18,9 @@
                     <input type="email" name="email" id="email"
                            class="mt-1 w-full border-b-2 border-black shadow-sm h-10 focus:border-black focus:border-2 focus:bg-transparent"
                            required autofocus>
+                    @error('email')
+                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Password -->
@@ -26,6 +29,9 @@
                     <input type="password" name="password" id="password"
                            class="mt-1 w-full border-b-2 border-black shadow-sm h-10 focus:border-black focus:border-2 focus:bg-transparent"
                            required>
+                    @error('password')
+                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="flex flex-col gap-5">

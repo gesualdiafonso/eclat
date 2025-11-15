@@ -20,6 +20,15 @@
             <form method="POST" action="{{ route('auth.register.process') }}">
                 @csrf
 
+                @if ($errors->any())
+                    <div class="bg-red-100 border-l-4 border-red-500 p-4 mb-4 text-red-700">
+                        <ul class="list-disc ml-4">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <!-- Name -->
                 <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700">Nombre Completo</label>

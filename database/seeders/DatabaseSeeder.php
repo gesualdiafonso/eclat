@@ -7,6 +7,12 @@ use Database\Seeders\ServiciosSeeder;
 use Database\Seeders\ModelosSeeder;
 use Database\Seeders\PostSeeders;
 use Illuminate\Database\Seeder;
+use Database\Seeders\CategoriasSeeders;
+use Database\Seeders\EstilosSeeders;
+use Database\Seeders\ModelosEstilosSeeders;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\PedidosSeeder;
+use Database\Seeders\PedidosModelosServiciosSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +36,8 @@ class DatabaseSeeder extends Seeder
             EstilosSeeders::class,
             ModelosEstilosSeeders::class,
             UserSeeder::class,
+            PedidosSeeder::class,
+            PedidosModelosServiciosSeeder::class,
         ]);
     }
 }
